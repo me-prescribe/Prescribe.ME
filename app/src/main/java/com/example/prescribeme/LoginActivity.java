@@ -77,22 +77,15 @@ public class LoginActivity extends AppCompatActivity {
 
         email_mic=(ImageButton)findViewById(R.id.mic_email); //Mic Button
         email_mic.setOnClickListener(v -> { /**Calling Google Speech to Text API*/
-            Intent intent
-                    = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                    RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,
-                    Locale.getDefault());
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
             intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
-
             try {
                 startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
             }
             catch (Exception e) {
-                Toast
-                        .makeText(LoginActivity.this, " " + e.getMessage(),
-                                Toast.LENGTH_SHORT)
-                        .show();
+                Toast.makeText(LoginActivity.this, " " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

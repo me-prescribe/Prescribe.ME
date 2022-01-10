@@ -6,4 +6,160 @@
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
+    <TextView
+        android:id="@+id/RegisterHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textColor="@color/foreground"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/EmailRegisterLL"
+        android:layout_marginStart="32sp"
+        android:layout_marginLeft="32sp"
+        android:layout_marginTop="64sp"
+        android:layout_marginEnd="32sp"
+        android:layout_marginRight="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RegisterHeader">
+
+        <EditText
+            android:id="@+id/EmailIDRegister"
+            android:layout_height="wrap_content"
+            android:layout_width="310sp"
+            android:background="@drawable/input_outline"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10sp"
+            android:ems="10"
+            android:hint="Email-ID"
+            android:inputType="textEmailAddress"
+            android:paddingStart="20sp"
+            android:paddingTop="10sp"
+            android:paddingEnd="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/foreground"
+            android:textColorHint="@color/foreground"/>
+
+        <ImageButton
+            android:id="@+id/mic_email"
+            android:layout_width="40dp"
+            android:layout_height="40sp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button"
+            app:srcCompat="@drawable/ic_mic" />
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/PasswordRegister"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp"
+        android:background="@drawable/input_outline"
+        android:drawableStart="@drawable/ic_security"
+        android:drawablePadding="10sp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:paddingStart="20sp"
+        android:paddingTop="10sp"
+        android:paddingEnd="10sp"
+        android:paddingBottom="10sp"
+        android:textColor="@color/foreground"
+        android:textColorHint="@color/foreground"
+        app:layout_constraintEnd_toEndOf="@+id/EmailRegisterLL"
+        app:layout_constraintStart_toStartOf="@+id/EmailRegisterLL"
+        app:layout_constraintTop_toBottomOf="@+id/EmailRegisterLL" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:background="@drawable/round_button"
+        android:text="Register"
+        app:backgroundTint="@color/foreground"
+        android:textColor="@color/background"
+        app:layout_constraintEnd_toEndOf="@+id/PasswordRegister"
+        app:layout_constraintStart_toStartOf="@+id/PasswordRegister"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordRegister" />
+
+    <LinearLayout
+        android:id="@+id/oldSignInLL"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+        app:layout_constraintStart_toStartOf="@+id/btnRegister"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister">
+
+        <TextView
+            android:id="@+id/txtexac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/foreground"
+            android:text="Already Have an Account?    "
+            android:textColor="@color/foreground" />
+
+        <TextView
+            android:id="@+id/txtSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/foreground"
+            android:text="Sign In"
+            android:textColor="@color/red"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Gsignup"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32sp"
+        android:layout_marginEnd="8sp"
+        android:background="@drawable/round_button"
+        android:drawableLeft="@drawable/ic_google"
+        android:paddingStart="20sp"
+        android:text="Google"
+        android:textColor="@color/background"
+        app:backgroundTint="@color/foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/FBsignup"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintVertical_bias="0.32999998" />
+
+    <Button
+        android:id="@+id/FBsignup"
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8sp"
+        android:layout_marginEnd="32sp"
+        android:background="@drawable/round_button"
+        android:drawableLeft="@drawable/ic_facebook"
+        android:paddingStart="20sp"
+        android:text="Facebook"
+        android:textColor="@color/background"
+        app:backgroundTint="@color/foreground"
+        app:layout_constraintBottom_toBottomOf="@+id/Gsignup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/Gsignup"
+        app:layout_constraintTop_toTopOf="@+id/Gsignup" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
