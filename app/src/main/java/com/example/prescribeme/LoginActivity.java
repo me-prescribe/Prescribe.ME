@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView txtSignUp, txtForgotPassword;
     EditText ipEmailId, ipPassword;
-    Button btnLogin, btnGoogle, btnFacebook, btnResetPwd;
+    Button btnLogin, btnGoogle, btnFacebook;
     String emailId, password;
     ImageButton email_mic;
 
@@ -62,39 +62,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         txtForgotPassword=(TextView)findViewById(R.id.txtForgotPassword);
-        btnResetPwd=(Button)findViewById(R.id.btnResetPWD);
         txtForgotPassword.setOnClickListener(v -> {
-            /**Changing Layout for Resetting Password*/
-            btnResetPwd.setVisibility(View.VISIBLE);
-            ((TextView)findViewById(R.id.LoginHeader)).setText("Reset Password");
-            btnLogin.setVisibility(View.GONE);
-            btnFacebook.setVisibility(View.GONE);
-            btnGoogle.setVisibility(View.GONE);
-            ipPassword.setVisibility(View.GONE);
-            txtForgotPassword.setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.txtnoac)).setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.txtSignUp)).setVisibility(View.GONE);
-        });
-
-        btnResetPwd.setOnClickListener(v -> {
             emailId=ipEmailId.getText().toString();
-            if (emailId.isEmpty() || !emailId.contains("@")){ //Checking if Email is blank or if it contains '@'
-                ipEmailId.setError("Email ID Invalid!"); //shows Error on the Email ID Input Box
-                ipEmailId.requestFocus();
-            }
-            else
-            {   /**Sending Password Reset Email through Firebase*/
-                mAuth.sendPasswordResetEmail(emailId)
-                        .addOnCompleteListener(task -> {
-                            if(task.isSuccessful())
-                                //shows that Password Reset Mail is sent successfully
-                                Toast.makeText(LoginActivity.this, "Password Reset Link Sent Successful! Please Sign In Again", Toast.LENGTH_SHORT).show();
-                            else
-                                //shows that Password Reset Mail was not sent successfully
-                                Toast.makeText(LoginActivity.this, "There was an Error Password Reset Message! Please Sign In Again", Toast.LENGTH_SHORT).show();
-                        });
-                startActivity(new Intent(LoginActivity.this,LoginActivity.class)); //Calling Login Activity Again to Reset Layout
-            }
+            Intent resetInt=new Intent(LoginActivity.this, ResetPassword.class);
+            resetInt.putExtra("EmailID", emailId);
+            startActivity(resetInt);
         });
 
         btnFacebook=(Button)findViewById(R.id.FBsignup);

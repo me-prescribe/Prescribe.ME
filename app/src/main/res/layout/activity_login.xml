@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
+        app:layout_constraintVertical_bias="0.100000024"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,17 +38,17 @@
             android:layout_height="wrap_content"
             android:layout_width="310sp"
             android:background="@drawable/input_outline"
-            android:drawableLeft="@drawable/ic_email"
+            android:drawableStart="@drawable/ic_email"
             android:drawablePadding="10sp"
             android:ems="10"
             android:hint="Email-ID"
             android:inputType="textEmailAddress"
-            android:paddingLeft="20sp"
+            android:paddingStart="20sp"
             android:paddingTop="10sp"
-            android:paddingRight="10sp"
+            android:paddingEnd="10sp"
             android:paddingBottom="10sp"
             android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
+            android:textColorHint="@color/foreground" />
 
         <ImageButton
             android:id="@+id/mic_email"
@@ -56,7 +56,8 @@
             android:layout_height="40sp"
             android:layout_weight="1"
             android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
+            app:srcCompat="@drawable/ic_mic"
+            android:contentDescription="Microphone for Voice Input" />
     </LinearLayout>
 
     <EditText
@@ -106,19 +107,6 @@
         app:layout_constraintStart_toStartOf="@+id/PasswordLogin"
         app:layout_constraintTop_toBottomOf="@+id/txtForgotPassword" />
 
-    <Button
-        android:id="@+id/btnResetPWD"
-        android:layout_width="0sp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/round_button"
-        android:text="Reset Password"
-        android:visibility="gone"
-        app:backgroundTint="@color/foreground"
-        app:layout_constraintEnd_toEndOf="@+id/EmailLoginLL"
-        app:layout_constraintStart_toStartOf="@+id/EmailLoginLL"
-        app:layout_constraintTop_toBottomOf="@+id/EmailLoginLL" />
-
     <LinearLayout
         android:id="@+id/newSignUpLL"
         android:layout_width="0sp"
@@ -155,9 +143,7 @@
         android:layout_width="0sp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
         android:layout_marginEnd="8sp"
-        android:layout_marginRight="8sp"
         android:background="@drawable/round_button"
         android:drawableLeft="@drawable/ic_google"
         android:paddingLeft="20sp"
