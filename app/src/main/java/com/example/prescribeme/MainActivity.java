@@ -35,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
         txtDrName.setText("Dr. " + user.getEmail()); //Displaying Email Address of Doctor(User)
 
         btnPrescribe=(Button)findViewById(R.id.btnPrescribe);
-        btnPrescribe.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Coming Soon! Please Wait!", Toast.LENGTH_LONG).show());
+        btnPrescribe.setOnClickListener(view -> {Toast.makeText(MainActivity.this, "Coming Soon! Please Wait!", Toast.LENGTH_LONG).show();
+        throw new RuntimeException("Test Crash"); // Force a crash
+    });
 
         btnSignOut=(Button)findViewById(R.id.btnSignOut);
         btnSignOut.setOnClickListener(v -> {

@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal"
             android:fontFamily="cursive"
-            android:text="Dr. <Your Name Here>"
+            android:text="Dr. Your Name Here"
             android:textColor="@color/foreground"
             android:textSize="24sp" />
 

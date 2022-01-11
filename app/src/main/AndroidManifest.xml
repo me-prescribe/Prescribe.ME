@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PrescribeME">
+        <meta-data
+            android:name="firebase_performance_logcat_enabled"
+            android:value="true" />
         <activity
             android:name=".ResetPassword"
             android:exported="false" />
