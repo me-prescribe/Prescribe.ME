@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Prescribe.ME</string>
-    <string name="LDMode">Dark</string>
+    <string name="LDMode">Light</string>
 </resources>

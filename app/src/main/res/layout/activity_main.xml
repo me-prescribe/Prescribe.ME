@@ -78,4 +78,48 @@
         app:layout_constraintStart_toStartOf="@+id/btnPrescribe"
         app:layout_constraintTop_toBottomOf="@+id/btnPrescribe" />
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.95">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/LightMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_day"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/DarkMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_night"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/LDMode"
+            android:textStyle="bold"
+            android:textColor="@color/foreground"
+            android:layout_gravity="center_vertical|center_horizontal"/>
+
+            <!--The value of string changes upon Light or Dark Mode-->
+            <!--i.e. "Dark" in Light Mode & "Light" in Dark Mode-->
+</LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

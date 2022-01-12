@@ -1,11 +1,15 @@
 package com.example.prescribeme;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtDrName;
     Button btnPrescribe, btnSignOut;
+    ImageView light, dark;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -24,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Getting preferred Mode (Light/Dark)
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        final SharedPreferences.Editor editor = sharedPreferences.edit();
+        final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false); //Maintains if Dark Mode is on/off
 
         //Receiving Intent from Login or Register Activity
         Intent mainint=getIntent();
@@ -50,5 +60,31 @@ public class MainActivity extends AppCompatActivity {
             loginint.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(loginint);
         });
+
+        light=(ImageView) findViewById(R.id.LightMode); //Sun Image to show Light/Day Mode
+        light.setOnClickListener(v -> {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //Turns off Dark Mode
+            editor.putBoolean("isDarkModeOn", false); //set Dark Mode to false on selection
+            editor.apply();
+        });
+
+        dark=(ImageView) findViewById(R.id.DarkMode); //Moon Image to show Dark/Night Mode
+        dark.setOnClickListener(v -> {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); //Turns on Dark Mode
+            editor.putBoolean("isDarkModeOn", true); //set Dark Mode to true on selection
+            editor.apply();
+        });
+
+        //initial mode when launched
+        if (isDarkModeOn) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); //YES to Dark Mode
+            light.setVisibility(View.VISIBLE); //Will show option to switch to Light Mode
+            dark.setVisibility(View.GONE);
+        }
+        else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //NO to Dark Mode
+            dark.setVisibility(View.VISIBLE); //Will show option to switch to Light Mode
+            light.setVisibility(View.GONE);
+        }
     }
 }
