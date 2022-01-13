@@ -15,10 +15,12 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     TextView txtDrName;
-    Button btnPrescribe, btnSignOut;
+    Button btnPrescribe, btnSignOut, btnGoUpdate;
     ImageView light, dark;
 
     FirebaseAuth mAuth;
@@ -41,12 +43,10 @@ public class MainActivity extends AppCompatActivity {
         user=mAuth.getCurrentUser(); //Getting Currently Signed In User
 
         txtDrName=(TextView)findViewById(R.id.txtDrName);
-        txtDrName.setText("Dr. " + user.getEmail()); //Displaying Email Address of Doctor(User)
+        txtDrName.setText("Dr. " + user.getDisplayName()); //Displaying Name of Doctor(User)
 
         btnPrescribe=(Button)findViewById(R.id.btnPrescribe);
-        btnPrescribe.setOnClickListener(view -> {Toast.makeText(MainActivity.this, "Coming Soon! Please Wait!", Toast.LENGTH_LONG).show();
-        throw new RuntimeException("Test Crash"); // Force a crash
-    });
+        btnPrescribe.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Coming Soon! Please Wait!", Toast.LENGTH_LONG).show());
 
         btnSignOut=(Button)findViewById(R.id.btnSignOut);
         btnSignOut.setOnClickListener(v -> {
@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
             loginint.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(loginint);
         });
+
+        btnGoUpdate=(Button) findViewById(R.id.btnGoUpdate);
+        btnGoUpdate.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, UpdateProfile.class))); //Will lead user to Update Profile Class
 
         light=(ImageView) findViewById(R.id.LightMode); //Sun Image to show Light/Day Mode
         light.setOnClickListener(v -> {

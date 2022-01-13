@@ -99,6 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_day"
+            android:layout_gravity="center_horizontal"
             android:visibility="gone"/>
 
         <ImageView
@@ -106,6 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_night"
+            android:layout_gravity="center_horizontal"
             android:visibility="gone"/>
 
     </LinearLayout>
@@ -116,10 +118,23 @@
             android:text="@string/LDMode"
             android:textStyle="bold"
             android:textColor="@color/foreground"
-            android:layout_gravity="center_vertical|center_horizontal"/>
+            android:layout_gravity="center_horizontal"/>
 
             <!--The value of string changes upon Light or Dark Mode-->
             <!--i.e. "Dark" in Light Mode & "Light" in Dark Mode-->
 </LinearLayout>
+
+    <Button
+        android:id="@+id/btnGoUpdate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_button"
+        android:text="Update Profile"
+        android:textColor="@color/background"
+        app:backgroundTint="@color/foreground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnPrescribe"
+        app:layout_constraintStart_toStartOf="@+id/btnPrescribe"
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

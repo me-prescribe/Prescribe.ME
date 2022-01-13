@@ -85,21 +85,19 @@ public class RegisterActivity extends AppCompatActivity {
         switch (requestCode) {
             case REQUEST_CODE_SPEECH_INPUT:
                 if (resultCode == RESULT_OK && data != null) {
-                    ArrayList<String> result = data.getStringArrayListExtra(
-                            RecognizerIntent.EXTRA_RESULTS);
-                    ipEmailId.setText(
-                            Objects.requireNonNull(result).get(0));
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    ipEmailId.setText(Objects.requireNonNull(result).get(0));
                 }
         }
     }
 
-    private void checkCredentials() {
-        emailId = ipEmailId.getText().toString();
-        password = ipPassword.getText().toString();
-        if (emailId.isEmpty() || !emailId.contains("@")) {
+    private void checkCredentials() { //Function to check if User has entered data correctly
+        emailId = ipEmailId.getText().toString(); //extracting email from EditText
+        password = ipPassword.getText().toString(); //extracting password from EditText
+        if (!emailId.contains("@")) { //Email should have '@'
             ipEmailId.setError("Email ID Invalid!");
             ipEmailId.requestFocus();
-        } else if (password.isEmpty() || password.length() < 8) {
+        } else if (password.length() < 8) { //Password should be greater than 8 characters
             ipPassword.setError("Password should be greater than 8 characters");
             ipPassword.requestFocus();
         } else {

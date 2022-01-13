@@ -6,12 +6,17 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable-v24/ic_facebook.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable-v24/ic_google.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.25" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_building.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_contact.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_day.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_email.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_facebook.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_google.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_mic.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_night.xml" value="0.14322916666666666" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_numbers.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_person.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_qualif.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_security.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/input_outline.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/round_button.xml" value="0.25" />
@@ -19,6 +24,7 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_main.xml" value="0.23385416666666667" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_reset_password.xml" value="0.23385416666666667" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_update_profile.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/mipmap-anydpi-v26/ic_doctor.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/mipmap-anydpi-v26/ic_doctor_round.xml" value="0.14322916666666666" />
       </map>

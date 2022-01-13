@@ -12,8 +12,8 @@ android {
         applicationId "com.example.prescribeme"
         minSdk 21
         targetSdk 31
-        versionCode 1
-        versionName "24-01-2022"
+        versionCode 3
+        versionName "07-02-2022"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,4 +45,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
     implementation 'com.google.firebase:firebase-perf'
+    implementation 'com.google.firebase:firebase-database'
 }
