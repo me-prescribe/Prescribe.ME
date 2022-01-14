@@ -4,28 +4,27 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.auth.api.fallback.service.FirebaseAuthFallbackService;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class UpdateProfile extends AppCompatActivity {
 
@@ -59,6 +58,8 @@ public class UpdateProfile extends AppCompatActivity {
         usrRegistrationNo=(EditText) findViewById(R.id.usrRegistrationNo);
         usrClinic=(EditText) findViewById(R.id.usrClinic);
         usrContact=(EditText) findViewById(R.id.usrContact);
+
+        displayUserProfile();
 
         mic[0]=(ImageButton) findViewById(R.id.mic_FName);
         mic[1]=(ImageButton) findViewById(R.id.mic_LName);
@@ -167,7 +168,7 @@ public class UpdateProfile extends AppCompatActivity {
             usrLName.requestFocus();
             return false;
         }
-        else if (AadharNo.length() != 12){ //AadharNo length is not 11 (Could be Empty)
+        else if (AadharNo.length() != 12 || isNotNumeric(AadharNo)){ //AadharNo length is not 12 (Could be Empty) OR is not a number
             usrAadharNo.setError("Enter Valid Aadhar No");
             usrAadharNo.requestFocus();
             return false;
@@ -183,16 +184,74 @@ public class UpdateProfile extends AppCompatActivity {
             return false;
         }
         else if (Clinic.isEmpty()){ //Blank Clinic
-            usrClinic.setError("Enter Atleast 1 Clinic/Hospital");
+            usrClinic.setError("Enter At least 1 Clinic/Hospital");
             usrClinic.requestFocus();
             return false;
         }
-        else if (Contact.length()!=8 && Contact.length()!=10){ //Contact length is neither 8 nor 10 (Could be Blank)
+        else if (Contact.length()!=8 && Contact.length()!=10 || isNotNumeric(Contact)){ //Contact length is neither 8 nor 10 (Could be Blank) OR is not a number
             usrContact.setError("Enter Valid Contact No");
             usrContact.requestFocus();
             return false;
         }
         else
             return true; //If everything is perfect we return true
+    }
+
+    //Function to check if String is Numeric
+    public boolean isNotNumeric(String strNum) {
+        Pattern pattern = Pattern.compile("\\d+"); //RegEx to suggest a digit(\d)
+        if (strNum == null) {
+            return true;
+        }
+        return !pattern.matcher(strNum).matches(); //compares string with given pattern
+    }
+
+    //Function to display User Profile in their respective EditText
+    private void displayUserProfile() {
+        realRef.child("Profile Info").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) { //Loads a snapshot of all children of given branch
+                Toast.makeText(UpdateProfile.this, "Please Wait while we load your data", Toast.LENGTH_LONG).show();
+                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                    String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
+                    String snap_name = snapshot1.getKey(); //Enter Name/Key of Individual Child
+
+                    //Alphabetical Order: Aadhar No, Clinic, Contact, First Name, Last Name, Qualifications, Registration No
+                    if (!snap_value.equals("false")){
+                        switch (snap_name) {
+                            case "Aadhar No":
+                                usrAadharNo.setText(snap_value);
+                                break;
+                            case "Clinic":
+                                usrClinic.setText(snap_value);
+                                break;
+                            case "Contact":
+                                usrContact.setText(snap_value);
+                                break;
+                            case "First Name":
+                                usrFName.setText(snap_value);
+                                break;
+                            case "Last Name":
+                                usrLName.setText(snap_value);
+                                break;
+                            case "Qualifications":
+                                usrQualifications.setText(snap_value);
+                                break;
+                            case "Registration No":
+                                usrRegistrationNo.setText(snap_value);
+                                break;
+                            default:
+                                Toast.makeText(UpdateProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+                Toast.makeText(UpdateProfile.this, "You May Now Proceed to enter your details", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(UpdateProfile.this, "Error: "+error, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
