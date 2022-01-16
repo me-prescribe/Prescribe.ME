@@ -49,7 +49,7 @@ public class UpdateProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
-        warn= ContextCompat.getColor(UpdateProfile.this, R.color.red); //Saving RGB value of warn color as int
+        warn= ContextCompat.getColor(UpdateProfile.this, R.color.red); //Saving RGB value of red color as int
         success= ContextCompat.getColor(UpdateProfile.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
 
         //Receiving Intent from ViewProfile Activity
@@ -70,7 +70,7 @@ public class UpdateProfile extends AppCompatActivity {
         usrContact=(EditText) findViewById(R.id.usrContact);
 
         messageBox=(TextView) findViewById(R.id.messageBoxUP); //References the Message Box
-        messageBox.setText("Please Wait while we load your data"); //We now show our messages through the Message Box
+        messageBox.setText("Please Wait While We Load Your Data"); //We now show our messages through the Message Box
         messageBox.setTextColor(warn);
         displayUserProfile();
 
@@ -124,10 +124,10 @@ public class UpdateProfile extends AppCompatActivity {
 
     //Function to Update User Profile in Relational Database
     private void updateUserProfile() {
-        if (checkCwarnentials()){
+        if (checkCredentials()){
             Name=FName+" "+LName; //Save the full name of user
             UserProfileChangeRequest profileUpdates;
-            profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(Name).build(); //changes display name to currently entewarn Full Name
+            profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(Name).build(); //changes display name to currently entered Full Name
             user.updateProfile(profileUpdates).addOnCompleteListener(task -> { //Intimation of Updating Process Result to User
                         if (task.isSuccessful()) {
                             messageBox.setText("User Display Name Update Successful!");
@@ -157,7 +157,7 @@ public class UpdateProfile extends AppCompatActivity {
                                         if (task1.isSuccessful()){
                                             messageBox.setText("Database Update Successful!");
                                             messageBox.setTextColor(success);
-                                            Toast.makeText(UpdateProfile.this, "Loading View Profile Activity", Toast.LENGTH_LONG).show();
+                                            Toast.makeText(UpdateProfile.this, "Loading Profile Details", Toast.LENGTH_LONG).show();
                                             startActivity(new Intent(UpdateProfile.this, ViewProfile.class));
                                         }
                                         else{
@@ -174,7 +174,7 @@ public class UpdateProfile extends AppCompatActivity {
         }
     }
 
-    private boolean checkCwarnentials() { //Function to check if User has entewarn data correctly
+    private boolean checkCredentials() { //Function to check if User has entered data correctly
         FName=usrFName.getText().toString(); //extracting FName from EditText
         LName=usrLName.getText().toString(); //extracting LName from EditText
         AadharNo=usrAadharNo.getText().toString(); //extracting AadharNo from EditText
@@ -264,7 +264,7 @@ public class UpdateProfile extends AppCompatActivity {
                                 usrRegistrationNo.setText(snap_value);
                                 break;
                             default:
-                                Toast.makeText(UpdateProfile.this, "An Error Occurwarn while loading content", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UpdateProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

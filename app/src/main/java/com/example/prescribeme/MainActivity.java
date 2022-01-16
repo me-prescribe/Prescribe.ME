@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnView=(Button) findViewById(R.id.btnViewProfile);
-        btnView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ViewProfile.class))); //Will lead user to View Profile Class
+        btnView.setOnClickListener(v -> {
+            Toast.makeText(MainActivity.this, "Loading Profile Details", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, ViewProfile.class));
+        }); //Will lead user to View Profile Class
 
         light=(ImageView) findViewById(R.id.LightMode); //Sun Image to show Light/Day Mode
         light.setOnClickListener(v -> {

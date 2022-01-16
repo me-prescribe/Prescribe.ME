@@ -55,7 +55,7 @@ public class ViewProfile extends AppCompatActivity {
         viewContact=(TextView) findViewById(R.id.viewContact);
 
         messageBox=(TextView) findViewById(R.id.messageBoxVP); //References the Message Box
-        messageBox.setText("Please Wait while we load your data"); //We now show our messages through the Message Box
+        messageBox.setText("Please Wait While We Load Your Data"); //We now show our messages through the Message Box
         messageBox.setTextColor(warn);
         displayUserProfile();
 
@@ -77,7 +77,7 @@ public class ViewProfile extends AppCompatActivity {
         realRef.child("Profile Info").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) { //Loads a snapshot of all children of given branch
-                messageBox.setText("You may now view your details");
+                messageBox.setText("Details Fetched Successfully");
                 messageBox.setTextColor(success);
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
