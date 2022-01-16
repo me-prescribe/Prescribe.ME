@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnView=(Button) findViewById(R.id.btnViewProfile);
-        btnView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, UpdateProfile.class))); //Will lead user to Update Profile Class
+        btnView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ViewProfile.class))); //Will lead user to View Profile Class
 
         light=(ImageView) findViewById(R.id.LightMode); //Sun Image to show Light/Day Mode
         light.setOnClickListener(v -> {

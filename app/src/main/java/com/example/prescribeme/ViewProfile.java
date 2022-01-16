@@ -72,7 +72,7 @@ public class ViewProfile extends AppCompatActivity {
                 Toast.makeText(ViewProfile.this, "Please Wait while we load your data", Toast.LENGTH_LONG).show();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
-                    String snap_name = snapshot1.getKey(); //Enter Name/Key of Individual Child
+                    String snap_name = snapshot1.getKey(); //Extract Name/Key of Individual Child
 
                     //Alphabetical Order: Aadhar No, Clinic, Contact, First Name, Last Name, Qualifications, Registration No
                     if (!snap_value.equals("false")){
