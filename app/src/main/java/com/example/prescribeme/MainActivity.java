@@ -20,7 +20,7 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 
     TextView txtDrName;
-    Button btnPrescribe, btnSignOut, btnGoUpdate;
+    Button btnPrescribe, btnSignOut, btnView;
     ImageView light, dark;
 
     FirebaseAuth mAuth;
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(loginint);
         });
 
-        btnGoUpdate=(Button) findViewById(R.id.btnGoUpdate);
-        btnGoUpdate.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, UpdateProfile.class))); //Will lead user to Update Profile Class
+        btnView=(Button) findViewById(R.id.btnViewProfile);
+        btnView.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, UpdateProfile.class))); //Will lead user to Update Profile Class
 
         light=(ImageView) findViewById(R.id.LightMode); //Sun Image to show Light/Day Mode
         light.setOnClickListener(v -> {

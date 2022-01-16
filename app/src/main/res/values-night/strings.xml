@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Prescribe.ME</string>
     <string name="LDMode">Light</string>
+    <string name="blank_value">No Value Found</string>
 </resources>

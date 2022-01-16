@@ -45,6 +45,9 @@ public class UpdateProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
 
+        //Receiving Intent from ViewProfile Activity
+        Intent updint=getIntent();
+
         mAuth= FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
         UserID= user != null ? user.getUid() : null; //Retrieves unique User ID
