@@ -307,4 +307,18 @@
         app:layout_constraintStart_toStartOf="@+id/ClinicLL"
         app:layout_constraintTop_toBottomOf="@+id/ClinicLL" />
 
+
+    <TextView
+        android:id="@+id/messageBoxUP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:shadowColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+    <!--This TextBox will be used to show any messages to the user-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

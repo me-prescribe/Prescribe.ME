@@ -2,13 +2,16 @@ package com.example.prescribeme;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,8 +35,10 @@ public class UpdateProfile extends AppCompatActivity {
     EditText usrFName, usrLName, usrAadharNo, usrQualifications, usrRegistrationNo, usrClinic, usrContact, dummy;
     ImageButton[] mic = new ImageButton[7]; //Array for storing all the mic buttons
     Button update;
+    TextView messageBox;
     String FName, LName, AadharNo, Qualifications, RegistrationNo, Clinic, Contact;
     String UserID, Name;
+    int warn, success;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -44,6 +49,8 @@ public class UpdateProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_profile);
+        warn= ContextCompat.getColor(UpdateProfile.this, R.color.red); //Saving RGB value of warn color as int
+        success= ContextCompat.getColor(UpdateProfile.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
 
         //Receiving Intent from ViewProfile Activity
         Intent updint=getIntent();
@@ -62,6 +69,9 @@ public class UpdateProfile extends AppCompatActivity {
         usrClinic=(EditText) findViewById(R.id.usrClinic);
         usrContact=(EditText) findViewById(R.id.usrContact);
 
+        messageBox=(TextView) findViewById(R.id.messageBoxUP); //References the Message Box
+        messageBox.setText("Please Wait while we load your data"); //We now show our messages through the Message Box
+        messageBox.setTextColor(warn);
         displayUserProfile();
 
         mic[0]=(ImageButton) findViewById(R.id.mic_FName);
@@ -114,16 +124,20 @@ public class UpdateProfile extends AppCompatActivity {
 
     //Function to Update User Profile in Relational Database
     private void updateUserProfile() {
-        if (checkCredentials()){
+        if (checkCwarnentials()){
             Name=FName+" "+LName; //Save the full name of user
             UserProfileChangeRequest profileUpdates;
-            profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(Name).build(); //changes display name to currently entered Full Name
+            profileUpdates = new UserProfileChangeRequest.Builder().setDisplayName(Name).build(); //changes display name to currently entewarn Full Name
             user.updateProfile(profileUpdates).addOnCompleteListener(task -> { //Intimation of Updating Process Result to User
-                        if (task.isSuccessful())
-                            Toast.makeText(UpdateProfile.this, "User Display Name Update Successful!",Toast.LENGTH_SHORT).show();
-                        else
-                            Toast.makeText(UpdateProfile.this, "User Display Name Update Unsuccessful!",Toast.LENGTH_SHORT).show();
-                    });
+                        if (task.isSuccessful()) {
+                            messageBox.setText("User Display Name Update Successful!");
+                            messageBox.setTextColor(success);
+                        }
+                        else {
+                            messageBox.setText("User Display Name Update Unsuccessful!");
+                            messageBox.setTextColor(warn);
+                        }
+            });
 
             HashMap<String, Object> Profile=new HashMap<>(); //Similar to Dictionary to store User Profile
             //Storing is done through put() method with signature <key>,<value>
@@ -141,19 +155,26 @@ public class UpdateProfile extends AppCompatActivity {
                             realRef.child("Completed").setValue(true) //Setting Field 'Completed' as true
                                     .addOnCompleteListener(task1 -> {
                                         if (task1.isSuccessful()){
-                                            Toast.makeText(UpdateProfile.this, "Database Update Successful!", Toast.LENGTH_LONG).show();
+                                            messageBox.setText("Database Update Successful!");
+                                            messageBox.setTextColor(success);
                                             Toast.makeText(UpdateProfile.this, "Loading View Profile Activity", Toast.LENGTH_LONG).show();
-                                            startActivity(new Intent(UpdateProfile.this, MainActivity.class));
+                                            startActivity(new Intent(UpdateProfile.this, ViewProfile.class));
                                         }
-                                        else Toast.makeText(UpdateProfile.this, "Database Update Unsuccessful!", Toast.LENGTH_LONG).show();
+                                        else{
+                                            messageBox.setText("Database Update Unsuccessful");
+                                            messageBox.setTextColor(warn);
+                                        }
                                     });
                         }
-                        else Toast.makeText(UpdateProfile.this, "Database Update Unsuccessful!", Toast.LENGTH_LONG).show();
+                        else{
+                            messageBox.setText("DataBase Update Unsuccessful");
+                            messageBox.setTextColor(warn);
+                        }
                     });
         }
     }
 
-    private boolean checkCredentials() { //Function to check if User has entered data correctly
+    private boolean checkCwarnentials() { //Function to check if User has entewarn data correctly
         FName=usrFName.getText().toString(); //extracting FName from EditText
         LName=usrLName.getText().toString(); //extracting LName from EditText
         AadharNo=usrAadharNo.getText().toString(); //extracting AadharNo from EditText
@@ -214,7 +235,6 @@ public class UpdateProfile extends AppCompatActivity {
         realRef.child("Profile Info").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) { //Loads a snapshot of all children of given branch
-                Toast.makeText(UpdateProfile.this, "Please Wait while we load your data", Toast.LENGTH_LONG).show();
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
                     String snap_name = snapshot1.getKey(); //Enter Name/Key of Individual Child
@@ -244,16 +264,19 @@ public class UpdateProfile extends AppCompatActivity {
                                 usrRegistrationNo.setText(snap_value);
                                 break;
                             default:
-                                Toast.makeText(UpdateProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UpdateProfile.this, "An Error Occurwarn while loading content", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
-                Toast.makeText(UpdateProfile.this, "You May Now Proceed to enter your details", Toast.LENGTH_SHORT).show();
+                messageBox.setText("You May Now Proceed to enter your details");
+                messageBox.setTextColor(success);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(UpdateProfile.this, "Error: "+error, Toast.LENGTH_SHORT).show();
+                messageBox.setText("Error: "+error);
+                messageBox.setTextColor(warn);
             }
         });
     }

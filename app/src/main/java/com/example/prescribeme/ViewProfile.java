@@ -2,8 +2,10 @@ package com.example.prescribeme;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,9 +23,10 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ViewProfile extends AppCompatActivity {
 
-    TextView viewFName, viewLName, viewAadharNo, viewQualifications, viewRegistrationNo, viewClinic, viewContact;
+    TextView viewFName, viewLName, viewAadharNo, viewQualifications, viewRegistrationNo, viewClinic, viewContact, messageBox;
     Button btnHome, btnGoUpdate;
     String UserID;
+    int warn, success;
     
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -34,6 +37,8 @@ public class ViewProfile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
+        warn=ContextCompat.getColor(ViewProfile.this, R.color.red); //Saving RGB value of red color as int
+        success= ContextCompat.getColor(ViewProfile.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
 
         mAuth= FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
@@ -49,6 +54,9 @@ public class ViewProfile extends AppCompatActivity {
         viewClinic=(TextView) findViewById(R.id.viewClinic);
         viewContact=(TextView) findViewById(R.id.viewContact);
 
+        messageBox=(TextView) findViewById(R.id.messageBoxVP); //References the Message Box
+        messageBox.setText("Please Wait while we load your data"); //We now show our messages through the Message Box
+        messageBox.setTextColor(warn);
         displayUserProfile();
 
         btnGoUpdate=(Button)findViewById(R.id.btnViewUpdate);
@@ -69,7 +77,8 @@ public class ViewProfile extends AppCompatActivity {
         realRef.child("Profile Info").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) { //Loads a snapshot of all children of given branch
-                Toast.makeText(ViewProfile.this, "Please Wait while we load your data", Toast.LENGTH_LONG).show();
+                messageBox.setText("You may now view your details");
+                messageBox.setTextColor(success);
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
                     String snap_name = snapshot1.getKey(); //Extract Name/Key of Individual Child
@@ -99,16 +108,17 @@ public class ViewProfile extends AppCompatActivity {
                                 viewRegistrationNo.setText(snap_value);
                                 break;
                             default:
-                                Toast.makeText(ViewProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ViewProfile.this, "An Error Occurwarn while loading content", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
-                Toast.makeText(ViewProfile.this, "You May Now Proceed to enter your details", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(ViewProfile.this, "Error: "+error, Toast.LENGTH_SHORT).show();
+                messageBox.setText("Error: "+error);
+                messageBox.setTextColor(warn);
             }
         });
     }

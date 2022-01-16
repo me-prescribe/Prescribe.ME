@@ -323,36 +323,46 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
         android:layout_marginTop="32sp"
         android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewContactLL"
-        android:orientation="vertical">
+        app:layout_constraintTop_toBottomOf="@+id/viewContactLL">
 
         <Button
             android:id="@+id/btnViewUpdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8sp"
             android:background="@drawable/round_button"
             android:text="Update Profile"
-            app:backgroundTint="@color/foreground"
-            android:layout_marginBottom="8sp"/>
+            app:backgroundTint="@color/foreground" />
 
         <Button
             android:id="@+id/btnHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
             android:background="@drawable/round_button"
             android:text="Home"
-            app:backgroundTint="@color/foreground"
-            android:layout_marginTop="8sp"/>
+            app:backgroundTint="@color/foreground" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/messageBoxVP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"/>
+    <!--This TextBox will be used to show any messages to the user-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
