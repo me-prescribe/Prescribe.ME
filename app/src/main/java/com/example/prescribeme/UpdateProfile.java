@@ -36,6 +36,7 @@ public class UpdateProfile extends AppCompatActivity {
     ImageButton[] mic = new ImageButton[7]; //Array for storing all the mic buttons
     Button update;
     TextView messageBox;
+
     String FName, LName, AadharNo, Qualifications, RegistrationNo, Clinic, Contact;
     String UserID, Name;
     int warn, success;

@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrescribeME">
         <activity
+            android:name=".Prescribe"
+            android:exported="false" />
+        <activity
+            android:name=".PatientInfo"
+            android:exported="false" />
+        <activity
             android:name=".ViewProfile"
             android:exported="false" />
         <activity

@@ -46,18 +46,18 @@ public class MainActivity extends AppCompatActivity {
         txtDrName.setText("Dr. " + user.getDisplayName()); //Displaying Name of Doctor(User)
 
         btnPrescribe=(Button)findViewById(R.id.btnPrescribe);
-        btnPrescribe.setOnClickListener(view -> Toast.makeText(MainActivity.this, "Coming Soon! Please Wait!", Toast.LENGTH_LONG).show());
+        btnPrescribe.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PatientInfo.class))); //Directs User to PatientInfo Activity
 
         btnSignOut=(Button)findViewById(R.id.btnSignOut);
         btnSignOut.setOnClickListener(v -> {
             mAuth.signOut(); //Signing Out using Firebase
             Toast.makeText(MainActivity.this, "Logout Successful",Toast.LENGTH_SHORT).show();
             //Creating Intent to go back to Login
-            Intent loginint=new Intent(MainActivity.this, LoginActivity.class);
+            Intent loginInt=new Intent(MainActivity.this, LoginActivity.class);
             //Flags are set so that if user tries to go 'Back' he can't come back to Main Activity
             //i.e. Once a user is logged out, he stays logged out till he signs in again
-            loginint.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(loginint);
+            loginInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(loginInt);
         });
 
         btnView=(Button) findViewById(R.id.btnViewProfile);

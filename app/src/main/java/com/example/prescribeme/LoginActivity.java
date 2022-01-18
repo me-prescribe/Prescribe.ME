@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         Intent oldACint=getIntent();
 
         //Receiving Intent from Main Activity
-        Intent loginint=getIntent();
+        Intent loginInt=getIntent();
 
         //Initialising both EditTexts (input box)
         ipEmailId=(EditText) findViewById(R.id.EmailIDLogin);
