@@ -108,7 +108,7 @@ public class ViewProfile extends AppCompatActivity {
                                 viewRegistrationNo.setText(snap_value);
                                 break;
                             default:
-                                Toast.makeText(ViewProfile.this, "An Error Occurwarn while loading content", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ViewProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

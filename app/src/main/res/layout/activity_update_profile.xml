@@ -1,324 +1,333 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateProfile">
-
-    <TextView
-        android:id="@+id/UpdateHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Update Profile"
-        android:textColor="@color/foreground"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
-
-    <LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/FirstNameLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="64sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UpdateHeader">
-
-
-        <EditText
-            android:id="@+id/usrFirstName"
-            android:layout_width="310sp"
+        android:layout_height="0dp"
+        tools:context=".UpdateProfile">
+    
+        <TextView
+            android:id="@+id/UpdateHeader"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableStart="@drawable/ic_person"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Enter Your First Name"
-            android:inputType="textPersonName"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
+            android:text="Update Profile"
             android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
-
-        <ImageButton
-            android:id="@+id/mic_FName"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/LastNameLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/FirstNameLL">
-
-        <EditText
-            android:id="@+id/usrLastName"
-            android:layout_width="310sp"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.100000024" />
+    
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableStart="@drawable/ic_person"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Enter Your Last Name"
-            android:inputType="textPersonName"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
-
-        <ImageButton
-            android:id="@+id/mic_LName"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/AadharNoLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LastNameLL">
-
-        <EditText
-            android:id="@+id/usrAadharNo"
-            android:layout_width="310sp"
+            android:id="@+id/FirstNameLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="64sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/UpdateHeader">
+    
+    
+            <EditText
+                android:id="@+id/usrFirstName"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Enter Your First Name"
+                android:inputType="textPersonName"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground"/>
+    
+            <ImageButton
+                android:id="@+id/mic_FName"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableLeft="@drawable/ic_numbers"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Enter Your Aadhar No"
-            android:inputType="number"
-            android:paddingLeft="20sp"
-            android:paddingTop="10sp"
-            android:paddingRight="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
-
-        <ImageButton
-            android:id="@+id/mic_AadharNo"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/QualificationsLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AadharNoLL">
-
-
-        <EditText
-            android:id="@+id/usrQualifications"
-            android:layout_width="310sp"
+            android:id="@+id/LastNameLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FirstNameLL">
+    
+            <EditText
+                android:id="@+id/usrLastName"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_person"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Enter Your Last Name"
+                android:inputType="textPersonName"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground"/>
+    
+            <ImageButton
+                android:id="@+id/mic_LName"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableStart="@drawable/ic_qualif"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Enter Your Qualification"
-            android:inputType="text"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
-
-        <ImageButton
-            android:id="@+id/mic_Qualif"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/RegistrationNoLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/QualificationsLL">
-
-        <EditText
-            android:id="@+id/usrRegistrationNo"
-            android:layout_width="310sp"
+            android:id="@+id/AadharNoLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LastNameLL">
+    
+            <EditText
+                android:id="@+id/usrAadharNo"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableLeft="@drawable/ic_numbers"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Enter Your Aadhar No"
+                android:inputType="number"
+                android:paddingLeft="20sp"
+                android:paddingTop="10sp"
+                android:paddingRight="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground"/>
+    
+            <ImageButton
+                android:id="@+id/mic_AadharNo"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableStart="@drawable/ic_numbers"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Enter Your Registration No"
-            android:inputType="text"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
-
-        <ImageButton
-            android:id="@+id/mic_RegNo"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ClinicLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RegistrationNoLL">
-
-        <EditText
-            android:id="@+id/usrClinic"
-            android:layout_width="310sp"
+            android:id="@+id/QualificationsLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AadharNoLL">
+    
+    
+            <EditText
+                android:id="@+id/usrQualifications"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_qualif"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Enter Your Qualification"
+                android:inputType="text"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground"/>
+    
+            <ImageButton
+                android:id="@+id/mic_Qualif"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic"/>
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableStart="@drawable/ic_building"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Enter Clinic, Hospital Visits"
-            android:inputType="textPersonName"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
-
-        <ImageButton
-            android:id="@+id/mic_Clinic"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ContactLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ClinicLL">
-
-        <EditText
-            android:id="@+id/usrContact"
-            android:layout_width="310sp"
+            android:id="@+id/RegistrationNoLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/QualificationsLL">
+    
+            <EditText
+                android:id="@+id/usrRegistrationNo"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_numbers"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Enter Your Registration No"
+                android:inputType="text"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground"/>
+    
+            <ImageButton
+                android:id="@+id/mic_RegNo"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableStart="@drawable/ic_contact"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Enter Contact Information"
-            android:inputType="number"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground"/>
-
-        <ImageButton
-            android:id="@+id/mic_Contact"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
+            android:id="@+id/ClinicLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/RegistrationNoLL">
+    
+            <EditText
+                android:id="@+id/usrClinic"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_building"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Enter Clinic, Hospital Visits"
+                android:inputType="textPersonName"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground"/>
+    
+            <ImageButton
+                android:id="@+id/mic_Clinic"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+        </LinearLayout>
+    
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ContactLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ClinicLL">
+    
+            <EditText
+                android:id="@+id/usrContact"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_contact"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Enter Contact Information"
+                android:inputType="number"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground"/>
+    
+            <ImageButton
+                android:id="@+id/mic_Contact"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+        </LinearLayout>
+    
+        <Button
+            android:id="@+id/btnUpdateProfile"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
             android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnUpdateProfile"
-        android:layout_width="0sp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:text="Update Profile"
-        app:backgroundTint="@color/foreground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/ClinicLL"
-        app:layout_constraintStart_toStartOf="@+id/ClinicLL"
-        app:layout_constraintTop_toBottomOf="@+id/ClinicLL" />
-
-
-    <TextView
-        android:id="@+id/messageBoxUP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:shadowColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99"/>
-    <!--This TextBox will be used to show any messages to the user-->
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Update Profile"
+            app:backgroundTint="@color/foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ContactLL"
+            app:layout_constraintStart_toStartOf="@+id/ContactLL"
+            app:layout_constraintTop_toBottomOf="@+id/ContactLL"
+            app:layout_constraintVertical_bias="0.5"/>
+    
+    
+        <TextView
+            android:id="@+id/messageBoxUP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:shadowColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnUpdateProfile"
+            app:layout_constraintVertical_bias="0.99"
+            android:layout_marginTop="30sp"/>
+        <!--This TextBox will be used to show any messages to the user-->
+    
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
         txtForgotPassword.setOnClickListener(v -> {
             emailId=ipEmailId.getText().toString();
             Intent resetInt=new Intent(LoginActivity.this, ResetPassword.class);
-            resetInt.putExtra("EmailID", emailId);
+            resetInt.putExtra("EmailID", emailId); //This allows us to share String data between activities
             startActivity(resetInt);
         });
 

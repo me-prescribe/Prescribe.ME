@@ -1,229 +1,237 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Prescribe"
-    android:forceDarkAllowed="false">
+    android:layout_width="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/PrescribeHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Prescribe"
-        android:textColor="@color/foreground"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.100000024" />
-
-    <LinearLayout
-        android:id="@+id/DiagnosisLL"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="64sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/PrescribeHeader">
-
-        <EditText
-            android:id="@+id/Diagnosis"
-            android:layout_width="310sp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableLeft="@drawable/ic_describe"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Diagnosis"
-            android:inputType="textMultiLine"
-            android:paddingLeft="20sp"
-            android:paddingTop="10sp"
-            android:paddingRight="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground" />
-
-        <ImageButton
-            android:id="@+id/micDiagnosis"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/MedicineLL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/DiagnosisLL">
-
-        <EditText
-            android:id="@+id/Medicine"
-            android:layout_width="310sp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableLeft="@drawable/ic_medicine"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Prescription"
-            android:inputType="textPersonName"
-            android:paddingLeft="20sp"
-            android:paddingTop="10sp"
-            android:paddingRight="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground" />
-
-        <ImageButton
-            android:id="@+id/micMedicine"
-            android:layout_width="30sp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txtPrescribe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16sp"
-        android:shadowColor="@color/foreground"
-        android:text="Prescribe Above Sentence?"
-        android:textColor="@color/foreground"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/MedicineLL"
-        app:layout_constraintTop_toBottomOf="@id/MedicineLL" />
-
-    <LinearLayout
-        android:id="@+id/InformationLL"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="64sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/MedicineLL">
-
-        <EditText
-            android:id="@+id/Information"
-            android:layout_width="310sp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/input_outline"
-            android:drawableStart="@drawable/ic_describe"
-            android:drawablePadding="10sp"
-            android:ems="10"
-            android:hint="Additional Information"
-            android:inputType="textMultiLine"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
-            android:textColor="@color/foreground"
-            android:textColorHint="@color/foreground" />
-
-        <ImageButton
-            android:id="@+id/micInformation"
-            android:layout_width="0dp"
-            android:layout_height="40sp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button"
-            app:srcCompat="@drawable/ic_mic" />
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnGenerateHTML"
-        android:layout_width="0sp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_button"
-        android:text="Generate Prescription HTML"
-        app:backgroundTint="@color/foreground"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="64sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/InformationLL"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewOutputLL"
-        android:layout_marginStart="32sp"
-        android:layout_marginLeft="32sp"
-        android:layout_marginTop="16sp"
-        android:layout_marginEnd="32sp"
-        android:layout_marginRight="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnGenerateHTML">
+        android:layout_height="0dp"
+        tools:context=".Prescribe">
 
         <TextView
-            android:id="@+id/slot_name"
+            android:id="@+id/PrescribeHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="10sp"
-            android:ems="6"
-            android:paddingTop="10sp"
-            android:paddingBottom="10sp"
-            android:text="Slot Name: "
+            android:text="Prescribe"
             android:textColor="@color/foreground"
-            android:textSize="16sp"
-            android:fontFamily="@font/baumans"
-            android:textStyle="bold" />
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
-            android:id="@+id/slot_value"
+        <LinearLayout
+            android:id="@+id/DiagnosisLL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawablePadding="10sp"
-            android:ems="6"
-            android:fontFamily="@font/berkshire_swash"
-            android:paddingStart="20sp"
-            android:paddingTop="10sp"
-            android:paddingEnd="10sp"
-            android:paddingBottom="10sp"
-            android:text="No Value Found"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="64sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/PrescribeHeader">
+
+            <EditText
+                android:id="@+id/Diagnosis"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_describe"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Diagnosis"
+                android:inputType="textMultiLine"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground" />
+
+            <ImageButton
+                android:id="@+id/micDiagnosis"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/MedicineLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/DiagnosisLL">
+
+            <EditText
+                android:id="@+id/Medicine"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableLeft="@drawable/ic_medicine"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Prescription"
+                android:inputType="textPersonName"
+                android:paddingLeft="20sp"
+                android:paddingTop="10sp"
+                android:paddingRight="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground" />
+
+            <ImageButton
+                android:id="@+id/micMedicine"
+                android:layout_width="30sp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtPrescribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:shadowColor="@color/foreground"
+            android:text="Prescribe Above Sentence?"
             android:textColor="@color/foreground"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/MedicineLL"
+            app:layout_constraintTop_toBottomOf="@id/MedicineLL" />
 
-    <TextView
-        android:id="@+id/messageBoxPres"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:shadowColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99"/>
-    <!--This TextBox will be used to show any messages to the user-->
+        <LinearLayout
+            android:id="@+id/InformationLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="64sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/MedicineLL">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/Information"
+                android:layout_width="310dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_outline"
+                android:drawableStart="@drawable/ic_describe"
+                android:drawablePadding="10sp"
+                android:ems="10"
+                android:hint="Additional Information"
+                android:inputType="textMultiLine"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:textColorHint="@color/foreground" />
+
+            <ImageButton
+                android:id="@+id/micInformation"
+                android:layout_width="0dp"
+                android:layout_height="40sp"
+                android:layout_weight="1"
+                android:background="@drawable/round_button"
+                app:srcCompat="@drawable/ic_mic" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnGenerateHTML"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:text="Generate Prescription HTML"
+            app:backgroundTint="@color/foreground"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="64sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InformationLL"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/viewOutputLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnGenerateHTML">
+
+            <TextView
+                android:id="@+id/slot_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:text="Slot Name: "
+                android:textColor="@color/foreground"
+                android:textSize="16sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/slot_value"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:fontFamily="@font/berkshire_swash"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:text="No Value Found"
+                android:textColor="@color/foreground"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/messageBoxPres"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:layout_marginTop="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewOutputLL"
+            app:layout_constraintVertical_bias="0.99" />
+        <!--This TextBox will be used to show any messages to the user-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -32,8 +32,9 @@ public class ResetPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
 
+        //Receiving Intent from Login Activity
         Intent resetInt=getIntent();
-        emailId=resetInt.getExtras().getString("EmailID", "");
+        emailId=resetInt.getExtras().getString("EmailID", ""); //Getting String named "EmailID" from Login Activity
 
         mAuth=FirebaseAuth.getInstance();
 
@@ -65,22 +66,16 @@ public class ResetPassword extends AppCompatActivity {
 
         email_mic=(ImageButton)findViewById(R.id.mic_email); //Mic Button
         email_mic.setOnClickListener(v -> { /**Calling Google Speech to Text API*/
-            Intent intent
-                    = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                    RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE,
-                    Locale.getDefault());
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
             intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Speak to text");
 
             try {
                 startActivityForResult(intent, REQUEST_CODE_SPEECH_INPUT);
             }
             catch (Exception e) {
-                Toast
-                        .makeText(ResetPassword.this, " " + e.getMessage(),
-                                Toast.LENGTH_SHORT)
-                        .show();
+                Toast.makeText(ResetPassword.this, " " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -92,10 +87,8 @@ public class ResetPassword extends AppCompatActivity {
         switch (requestCode) {
             case REQUEST_CODE_SPEECH_INPUT:
                 if (resultCode == RESULT_OK && data != null) {
-                    ArrayList<String> result = data.getStringArrayListExtra(
-                            RecognizerIntent.EXTRA_RESULTS);
-                    ipEmailId.setText(
-                            Objects.requireNonNull(result).get(0));
+                    ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    ipEmailId.setText(Objects.requireNonNull(result).get(0));
                 }
         }
     }
