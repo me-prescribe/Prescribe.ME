@@ -12,7 +12,7 @@ android {
         applicationId "com.example.prescribeme"
         minSdk 21
         targetSdk 31
-        versionCode 3
+        versionCode 4
         versionName "21-02-2022"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

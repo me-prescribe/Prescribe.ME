@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
 public class PatientInfo extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SPEECH_INPUT = 110;
-    private static final String URL = "https://prescribe-me.herokuapp.com/predict";
+    private final String URL = "https://prescribe-me.herokuapp.com/predict";
 
     EditText inFName, inLName, inAge, inGender, dummy;
     ImageButton[] mic =new ImageButton[4];
@@ -132,7 +132,7 @@ public class PatientInfo extends AppCompatActivity {
     }
 
     private void checkAPI() {
-        for(int j=0; j<2; j++)
+        for(int j=0; j<3; j++)
         {
             // hit the API -> Volley
             StringRequest stringRequest = new StringRequest(Request.Method.POST /*The Post Method is used for Flask API Connection*/, URL /*URL for connection is specified*/,

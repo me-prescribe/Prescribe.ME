@@ -121,7 +121,7 @@
             android:drawablePadding="10sp"
             android:ems="10"
             android:hint="Enter Your Aadhar No"
-            android:inputType="textVisiblePassword"
+            android:inputType="number"
             android:paddingLeft="20sp"
             android:paddingTop="10sp"
             android:paddingRight="10sp"
