@@ -167,7 +167,7 @@
             android:layout_width="0sp"
             android:layout_height="wrap_content"
             android:background="@drawable/round_button"
-            android:text="Generate Prescription HTML"
+            android:text="Generate Prescription"
             app:backgroundTint="@color/foreground"
             android:layout_marginStart="32sp"
             android:layout_marginLeft="32sp"
@@ -178,18 +178,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/InformationLL"/>
 
+    <ScrollView
+        android:id="@+id/viewOutputSV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="32sp"
+        android:layout_marginLeft="32sp"
+        android:layout_marginTop="16sp"
+        android:layout_marginEnd="32sp"
+        android:layout_marginRight="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGenerateHTML">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/viewOutputLL"
-            android:layout_marginStart="32sp"
-            android:layout_marginLeft="32sp"
-            android:layout_marginTop="16sp"
-            android:layout_marginEnd="32sp"
-            android:layout_marginRight="32sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnGenerateHTML">
+            android:id="@+id/viewOutputLL">
 
             <TextView
                 android:id="@+id/slot_name"
@@ -220,6 +225,7 @@
                 android:textColor="@color/foreground"
                 android:textSize="16sp" />
         </LinearLayout>
+    </ScrollView>
 
         <TextView
             android:id="@+id/messageBoxPres"
@@ -231,7 +237,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewOutputLL"
+            app:layout_constraintTop_toBottomOf="@+id/viewOutputSV"
             app:layout_constraintVertical_bias="0.99" />
         <!--This TextBox will be used to show any messages to the user-->
 
