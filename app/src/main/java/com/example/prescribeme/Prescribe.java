@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -38,6 +39,7 @@ public class Prescribe extends AppCompatActivity {
     EditText inDiagnosis, inPrescription, inInformation, dummy;
     ImageButton[] mic = new ImageButton[3];
     TextView txtPrescribe, messageBox, SlotName, SlotValue;
+    Button btnGenerate;
 
     String Diagnosis, Prescription, Information;
     String Name, Age, Gender, PresHTML;
@@ -84,6 +86,27 @@ public class Prescribe extends AppCompatActivity {
         mic[1].setOnClickListener(v -> micCalling(inPrescription) /*mic[1] is associated with inPrescription & hence, that is passed to micCalling()*/);
         mic[2].setOnClickListener(v -> micCalling(inInformation) /*mic[2] is associated with inInformation & hence, that is passed to micCalling()*/);
 
+        PresHTML=PrescriptionHTML.getPresHead();
+
+        btnGenerate=(Button) findViewById(R.id.btnGenerateHTML);
+        btnGenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Diagnosis=inDiagnosis.getText().toString();
+                Information=inInformation.getText().toString();
+                Prescription=inPrescription.getText().toString();
+                Intent confInt=new Intent(Prescribe.this,ConfirmProfile.class);
+                if(!Prescription.isEmpty())
+                    Toast.makeText(Prescribe.this, "Note: \""+Prescription+"\" will not be considered", Toast.LENGTH_SHORT).show();
+                confInt.putExtra("PresHTML", PresHTML+"</table>");
+                confInt.putExtra("Name", Name);
+                confInt.putExtra("Age", Age);
+                confInt.putExtra("Gender",Gender);
+                confInt.putExtra("Diagnosis", Diagnosis);
+                confInt.putExtra("Information", Information);
+                startActivity(confInt);
+            }
+        });
     }
 
     //Single Common Function which is called when any mic button is pressed

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:context=".ConfirmProfile">
+
+        <TextView
+            android:id="@+id/ConfirmHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30sp"
+            android:text="Confirm Information"
+            android:textColor="@color/foreground"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/DoctorInfo"
+            android:text="Doctor Profile"
+            android:textColor="@color/foreground"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ConfirmHeader"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DocNameLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DoctorInfo">
+
+            <TextView
+                android:id="@+id/txtDrName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="Name: "
+                android:textSize="20sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewDrName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="@string/blank_value"
+                android:fontFamily="@font/berkshire_swash"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DocQualificationsLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DocNameLL">
+
+            <TextView
+                android:id="@+id/txtDrQualifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="Qualifications: "
+                android:textSize="20sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewDrQualifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="@string/blank_value"
+                android:fontFamily="@font/berkshire_swash"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DocContactLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DocQualificationsLL">
+
+            <TextView
+                android:id="@+id/txtDrContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="Contact Info: "
+                android:textSize="20sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewDrContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="@string/blank_value"
+                android:fontFamily="@font/berkshire_swash"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/DocClinicLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DocContactLL">
+
+            <TextView
+                android:id="@+id/txtDrClinic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="Clinic/Hospitals: "
+                android:textSize="20sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewDrClinic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="@string/blank_value"
+                android:fontFamily="@font/berkshire_swash"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/PatientInfo"
+            android:text="Patient Profile"
+            android:textColor="@color/foreground"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DocClinicLL"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PatNameLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="16sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PatientInfo">
+
+            <TextView
+                android:id="@+id/txtPatName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="Name: "
+                android:textSize="20sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewPatName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="@string/blank_value"
+                android:fontFamily="@font/berkshire_swash"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PatAgeLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PatNameLL">
+
+            <TextView
+                android:id="@+id/txtPatAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="Age: "
+                android:textSize="20sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewPatAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="@string/blank_value"
+                android:fontFamily="@font/berkshire_swash"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/PatGenderLL"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PatAgeLL">
+
+            <TextView
+                android:id="@+id/txtPatGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingTop="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="Gender: "
+                android:textSize="20sp"
+                android:fontFamily="@font/baumans"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/viewPatGender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="10sp"
+                android:ems="6"
+                android:paddingStart="20sp"
+                android:paddingTop="10sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="10sp"
+                android:textColor="@color/foreground"
+                android:text="@string/blank_value"
+                android:fontFamily="@font/berkshire_swash"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="Confirm Profile Information"
+            app:backgroundTint="@color/foreground"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            android:layout_marginTop="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PatGenderLL"/>
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_button"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="Go Home | Restart"
+            app:backgroundTint="@color/foreground"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            android:layout_marginTop="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnConfirm"/>
+
+        <TextView
+            android:id="@+id/txtBackWarning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_horizontal|center_vertical"
+            android:text="@string/restart_presc_warn"
+            android:textColor="@color/red"
+            android:textStyle="bold"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnBack"/>
+
+        <TextView
+            android:id="@+id/messageBoxCP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:layout_marginTop="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtBackWarning"
+            app:layout_constraintVertical_bias="0.99" />
+        <!--This TextBox will be used to show any messages to the user-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

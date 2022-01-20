@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrescribeME">
         <activity
+            android:name=".ViewHTML"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".ConfirmProfile"
+            android:exported="false" />
+        <activity
             android:name=".Prescribe"
             android:exported="false" />
         <activity

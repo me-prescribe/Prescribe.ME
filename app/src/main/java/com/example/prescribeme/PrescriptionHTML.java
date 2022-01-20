@@ -2,6 +2,8 @@ package com.example.prescribeme;
 
 public class PrescriptionHTML {
 
+    public static String Caduceus="https://firebasestorage.googleapis.com/v0/b/prescribe-me-13.appspot.com/o/Caduceus.svg?alt=media&token=18e20c7b-9703-4bdf-b16c-2eb6a2ca4a3d";
+
     public static String getHeadHTML() {
         return "<!DOCTYPE html>" +
                 "<html>" +
@@ -72,7 +74,7 @@ public class PrescriptionHTML {
         return "<body>" +
                 "<table style=\"border: 0px;width: 100%;align-self: center;\">" +
                 "<tr>" +
-                "<td rowspan=\"4\" width=\"10%\"><center><img src=\"https://firebasestorage.googleapis.com/v0/b/testing-modules-27d9b.appspot.com/o/Caduceus.svg?alt=media&token=6b501ceb-216d-4af8-a8b8-c47538cf367f\" height=100px></center></td>" +
+                "<td rowspan=\"4\" width=\"10%\"><center><img src=\""+Caduceus+"\" height=100px></center></td>" +
                 "<td class=\"drname\" width=\"70%\">Dr. " + doc_info[0] + "</td>" +
                 "</tr>" +
                 "<tr>" +
@@ -154,7 +156,7 @@ public class PrescriptionHTML {
         return "<br><br><br><br><br><br><br>" +
                 "<div align=\"right\" style=\"padding-right: 5%;\"><img src=\"https://static.cdn.wisestamp.com/wp-content/uploads/2020/08/Oprah-Winfrey-Signature-1.png\" style=\"height: 100px;\"></div>" +
                 "<div align=\"right\" style=\"padding-right: 5%;\">Dr. "+ name +"</div>" +
-                "<footer><center>Made using <span class=\"name\">Prescribe.ME</span></center></footer>" +
+                "<footer><center>Made using <span>Prescribe.ME</span></center></footer>" +
                 "</body>" +
                 "</html>";
     }
