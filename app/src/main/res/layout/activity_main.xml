@@ -61,15 +61,39 @@
             android:id="@+id/btnViewProfile"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="32sp"
+            android:layout_marginEnd="8sp"
             android:layout_marginTop="50sp"
-            android:background="@drawable/round_button"
+            android:drawableLeft="@drawable/ic_person_filled"
+            android:paddingLeft="20sp"
             android:text="View Profile"
+            android:background="@drawable/round_button"
             android:textColor="@color/background"
             app:backgroundTint="@color/foreground"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/btnPrescribe"
-            app:layout_constraintStart_toStartOf="@+id/btnPrescribe"
+            app:layout_constraintEnd_toStartOf="@+id/btnViewSign"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnPrescribe"/>
+
+        <Button
+            android:id="@+id/btnViewSign"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:layout_marginTop="50sp"
+            android:layout_marginEnd="32sp"
+            android:background="@drawable/round_button"
+            android:drawableLeft="@drawable/ic_image_filled"
+            android:paddingLeft="20sp"
+            android:text="View Signature"
+            android:textColor="@color/background"
+            app:backgroundTint="@color/foreground"
+            app:layout_constraintBottom_toBottomOf="@+id/btnViewProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnViewProfile"
+            app:layout_constraintTop_toTopOf="@+id/btnViewProfile"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/btnSignOut"
@@ -81,7 +105,7 @@
             android:textColor="@color/background"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginTop="20sp"
-            app:layout_constraintEnd_toEndOf="@+id/btnViewProfile"
+            app:layout_constraintEnd_toEndOf="@+id/btnViewSign"
             app:layout_constraintStart_toStartOf="@+id/btnViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/btnViewProfile" />
 

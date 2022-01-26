@@ -12,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrescribeME">
         <activity
+            android:name=".UpdateSignature"
+            android:exported="false" />
+        <activity
             android:name=".ViewHTML"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".ConfirmProfile"
             android:exported="false" />

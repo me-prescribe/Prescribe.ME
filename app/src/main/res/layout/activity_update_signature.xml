@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateSignature">
+    
+    <LinearLayout
+        android:id="@+id/SignButtonLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32sp"
+        android:layout_marginEnd="32sp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnSignSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8sp"
+            android:background="@drawable/round_button"
+            app:backgroundTint="@color/foreground"
+            android:text="Select Signature"
+            android:textColor="@color/background" />
+
+        <Button
+            android:id="@+id/btnSignUpload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:visibility="gone"
+            android:background="@drawable/round_button"
+            app:backgroundTint="@color/foreground"
+            android:text="Upload Signature"
+            android:textColor="@color/background" />
+    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/CurrentSignLL"
+        app:layout_constraintBottom_toTopOf="@+id/SignButtonLL"
+        app:layout_constraintEnd_toEndOf="@+id/SignButtonLL"
+        app:layout_constraintStart_toStartOf="@+id/SignButtonLL"
+        app:layout_constraintTop_toTopOf="parent">
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Signature"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/foreground"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+    
+        <ImageView
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/imgCurrentSign"/>
+    
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="0sp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/SelectedSignLL"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/SignButtonLL"
+        app:layout_constraintStart_toStartOf="@+id/SignButtonLL"
+        app:layout_constraintTop_toBottomOf="@+id/SignButtonLL" >
+    
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected Signature"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/foreground"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+    
+        <ImageView
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/imgSelectSign"/>
+         
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/messageBoxSign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:shadowColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SelectedSignLL"
+        app:layout_constraintVertical_bias="0.99"
+        android:layout_marginTop="30sp"/>
+    <!--This TextBox will be used to show any messages to the user-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
