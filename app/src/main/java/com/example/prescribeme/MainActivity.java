@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         final boolean isDarkModeOn = sharedPreferences.getBoolean("isDarkModeOn", false); //Maintains if Dark Mode is on/off
 
         //Receiving Intent from Login or Register Activity
-        Intent mainint=getIntent();
+        Intent mainInt=getIntent();
 
         mAuth= FirebaseAuth.getInstance(); //Firebase Instance
         user=mAuth.getCurrentUser(); //Getting Currently Signed In User

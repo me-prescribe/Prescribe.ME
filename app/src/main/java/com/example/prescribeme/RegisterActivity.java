@@ -13,14 +13,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Objects;
 
 public class RegisterActivity extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SPEECH_INPUT = 110;
+    private String UserID;
 
     EditText ipEmailId, ipPassword;
     Button btnRegister, btnGoogle, btnFacebook;
@@ -29,6 +35,9 @@ public class RegisterActivity extends AppCompatActivity {
     TextView txtSignIn;
 
     FirebaseAuth mAuth;
+    FirebaseUser user;
+    FirebaseDatabase realDB;
+    DatabaseReference realRef;
     ProgressDialog mLoadingBar;
 
     @Override
@@ -110,9 +119,26 @@ public class RegisterActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     Toast.makeText(RegisterActivity.this, "User Registration Successful", Toast.LENGTH_SHORT).show();
                     mLoadingBar.dismiss();
-                    Intent  mainint=new Intent(RegisterActivity.this, MainActivity.class); //Calling Main Activity
-                    mainint.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(mainint);
+                    user=mAuth.getCurrentUser();
+                    UserID=user.getUid();
+                    realDB=FirebaseDatabase.getInstance();
+                    realRef=realDB.getReference().child(UserID);
+                    HashMap<String,Object> Profile=new HashMap<>();
+                    Profile.put("First Name", false);
+                    Profile.put("Last Name", false);
+                    Profile.put("Aadhar No", false);
+                    Profile.put("Registration No", false);
+                    Profile.put("Qualifications", false);
+                    Profile.put("Clinic", false);
+                    Profile.put("Contact", false);
+                    HashMap User = new HashMap();
+                    User.put("Completed", false);
+                    User.put("Profile Info", Profile);
+                    User.put("Sign Uploaded", false);
+                    realRef.updateChildren(User);
+                    Intent  mainInt=new Intent(RegisterActivity.this, MainActivity.class); //Calling Main Activity
+                    mainInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(mainInt);
                 } else {
                     Toast.makeText(RegisterActivity.this, "User Registration Unsuccessful", Toast.LENGTH_SHORT).show();
                     mLoadingBar.dismiss();

@@ -64,7 +64,8 @@
             android:layout_width="200sp"
             android:layout_height="200sp"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/imgCurrentSign"/>
+            android:id="@+id/imgCurrentSign"
+            android:src="@drawable/ic_error"/>
     
     </LinearLayout>
     
