@@ -145,18 +145,18 @@ public class ConfirmProfile extends AppCompatActivity {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()){
                     String snap_value=snapshot1.getValue().toString();
                     String snap_name= snapshot1.getKey();
-
+                    String snap_decrypt=CaesarCipher.decrypt(snap_value);
                     //Alphabetical Order: Aadhar No, Clinic, Contact, First Name, Last Name, Qualifications, Registration No
                     switch (snap_name)
                     {
                         case "Qualifications":
-                            drQualifications.setText(snap_value);
+                            drQualifications.setText(snap_decrypt);
                             break;
                         case "Contact":
-                            drContact.setText(snap_value);
+                            drContact.setText(snap_decrypt);
                             break;
                         case "Clinic":
-                            drClinic.setText(snap_value);
+                            drClinic.setText(snap_decrypt);
                         case "Registration No":
                         case "First Name":
                         case "Last Name":

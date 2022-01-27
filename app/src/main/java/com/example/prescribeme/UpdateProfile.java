@@ -142,13 +142,13 @@ public class UpdateProfile extends AppCompatActivity {
 
             HashMap<String, Object> Profile=new HashMap<>(); //Similar to Dictionary to store User Profile
             //Storing is done through put() method with signature <key>,<value>
-            Profile.put("First Name", FName);
-            Profile.put("Last Name", LName);
-            Profile.put("Aadhar No", AadharNo);
-            Profile.put("Registration No", RegistrationNo);
-            Profile.put("Qualifications", Qualifications);
-            Profile.put("Clinic", Clinic);
-            Profile.put("Contact", Contact);
+            Profile.put("First Name", CaesarCipher.encrypt(FName));
+            Profile.put("Last Name", CaesarCipher.encrypt(LName));
+            Profile.put("Aadhar No", CaesarCipher.encrypt(AadharNo));
+            Profile.put("Registration No", CaesarCipher.encrypt(RegistrationNo));
+            Profile.put("Qualifications", CaesarCipher.encrypt(Qualifications));
+            Profile.put("Clinic", CaesarCipher.encrypt(Clinic));
+            Profile.put("Contact", CaesarCipher.encrypt(Contact));
             //Alphabetical Order: Aadhar No, Clinic, Contact, First Name, Last Name, Qualifications, Registration No
             realRef.child("Profile Info").updateChildren(Profile) //Here all the data fields are updated together using HashMap
                     .addOnCompleteListener(task -> { //to check if update was successful
@@ -239,30 +239,30 @@ public class UpdateProfile extends AppCompatActivity {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
                     String snap_name = snapshot1.getKey(); //Enter Name/Key of Individual Child
-
+                    String snap_decrypt=CaesarCipher.decrypt(snap_value);
                     //Alphabetical Order: Aadhar No, Clinic, Contact, First Name, Last Name, Qualifications, Registration No
                     if (!snap_value.equals("false")){
                         switch (snap_name) {
                             case "Aadhar No":
-                                usrAadharNo.setText(snap_value);
+                                usrAadharNo.setText(snap_decrypt);
                                 break;
                             case "Clinic":
-                                usrClinic.setText(snap_value);
+                                usrClinic.setText(snap_decrypt);
                                 break;
                             case "Contact":
-                                usrContact.setText(snap_value);
+                                usrContact.setText(snap_decrypt);
                                 break;
                             case "First Name":
-                                usrFName.setText(snap_value);
+                                usrFName.setText(snap_decrypt);
                                 break;
                             case "Last Name":
-                                usrLName.setText(snap_value);
+                                usrLName.setText(snap_decrypt);
                                 break;
                             case "Qualifications":
-                                usrQualifications.setText(snap_value);
+                                usrQualifications.setText(snap_decrypt);
                                 break;
                             case "Registration No":
-                                usrRegistrationNo.setText(snap_value);
+                                usrRegistrationNo.setText(snap_decrypt);
                                 break;
                             default:
                                 Toast.makeText(UpdateProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();

@@ -82,30 +82,30 @@ public class ViewProfile extends AppCompatActivity {
                 for (DataSnapshot snapshot1 : snapshot.getChildren()) {
                     String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
                     String snap_name = snapshot1.getKey(); //Extract Name/Key of Individual Child
-
+                    String snap_decrypt=CaesarCipher.decrypt(snap_value);
                     //Alphabetical Order: Aadhar No, Clinic, Contact, First Name, Last Name, Qualifications, Registration No
                     if (!snap_value.equals("false")){
                         switch (snap_name) {
                             case "Aadhar No":
-                                viewAadharNo.setText(snap_value);
+                                viewAadharNo.setText(snap_decrypt);
                                 break;
                             case "Clinic":
-                                viewClinic.setText(snap_value);
+                                viewClinic.setText(snap_decrypt);
                                 break;
                             case "Contact":
-                                viewContact.setText(snap_value);
+                                viewContact.setText(snap_decrypt);
                                 break;
                             case "First Name":
-                                viewFName.setText(snap_value);
+                                viewFName.setText(snap_decrypt);
                                 break;
                             case "Last Name":
-                                viewLName.setText(snap_value);
+                                viewLName.setText(snap_decrypt);
                                 break;
                             case "Qualifications":
-                                viewQualifications.setText(snap_value);
+                                viewQualifications.setText(snap_decrypt);
                                 break;
                             case "Registration No":
-                                viewRegistrationNo.setText(snap_value);
+                                viewRegistrationNo.setText(snap_decrypt);
                                 break;
                             default:
                                 Toast.makeText(ViewProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();
