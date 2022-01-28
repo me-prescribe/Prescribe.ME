@@ -42,10 +42,10 @@ public class PrescriptionHTML {
                 "font-family: 'Aldrich';" +
                 "}" +
                 ".Drug{" +
-                "font-size: 20px;" +
+                "font-size: 17px;" +
                 "}" +
                 ".INN{" +
-                "font-size: 15px;" +
+                "font-size: 13px;" +
                 "font-weight: lighter;" +
                 "font-style: italic;" +
                 "}" +
@@ -62,7 +62,7 @@ public class PrescriptionHTML {
                 "font-family: 'Cabin';" +
                 "font-size: 20px;" +
                 "}" +
-                ".name" +
+                "span" +
                 "{" +
                 "font-family: Righteous;" +
                 "}" +

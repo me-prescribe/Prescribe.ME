@@ -199,6 +199,19 @@
             app:layout_constraintStart_toStartOf="@+id/PatGenderLL"
             app:layout_constraintTop_toBottomOf="@+id/PatGenderLL" />
 
+    <TextView
+        android:id="@+id/messageBoxPI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/black"
+        android:layout_marginTop="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnProceed"
+        app:layout_constraintVertical_bias="0.99" />
+    <!--This TextBox will be used to show any messages to the user-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

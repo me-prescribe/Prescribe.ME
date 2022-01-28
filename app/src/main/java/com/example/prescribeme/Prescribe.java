@@ -101,7 +101,16 @@ public class Prescribe extends AppCompatActivity {
                     AlertDialog.Builder builder = new AlertDialog.Builder(Prescribe.this); //Builder for creating an Alert Box
                     builder.setTitle("Pending Prescription") //Title of the Alert Dialog Box
                             .setMessage("Note: \""+Prescription+"\" is left to Prescribe") //Message which will be displayed in the Alert Dialog Box
-                            .setPositiveButton("Proceed", (dialog, which) -> Toast.makeText(Prescribe.this, Prescription+" is discarded", Toast.LENGTH_SHORT).show()) //If User clicks 'Proceeds'
+                            .setPositiveButton("Proceed", (dialog, which) -> { //If User clicks 'Proceeds'
+                                Toast.makeText(Prescribe.this, Prescription+" is discarded", Toast.LENGTH_SHORT).show();
+                                Intent confInt=new Intent(Prescribe.this,ConfirmProfile.class);
+                                confInt.putExtra("PresHTML", PresHTML+"</table>");
+                                confInt.putExtra("Name", Name);
+                                confInt.putExtra("Age", Age);
+                                confInt.putExtra("Gender",Gender);
+                                confInt.putExtra("Diagnosis", Diagnosis);
+                                confInt.putExtra("Information", Information);
+                                startActivity(confInt);})
                             .setNegativeButton("Prescribe", (dialog, which) -> APIConnection(Prescription)) //If User clicks 'Prescribe'
                             .setCancelable(false); //User can't click Outside to Cancel
                     AlertDialog pending = builder.create(); //Alert Dialog Box is finally created

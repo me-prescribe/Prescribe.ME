@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -30,6 +31,7 @@ public class PatientInfo extends AppCompatActivity {
     EditText inFName, inLName, inAge, inGender, dummy;
     ImageButton[] mic =new ImageButton[4];
     Button proceed;
+    TextView messageBox;
 
     String FName, LName, Age, Gender;
 
@@ -52,6 +54,8 @@ public class PatientInfo extends AppCompatActivity {
         mic[1].setOnClickListener(v -> micCalling(inLName) /*mic[1] is associated with inLName & hence, that is passed to micCalling()*/);
         mic[2].setOnClickListener(v -> micCalling(inAge) /*mic[2] is associated with inAge & hence, that is passed to micCalling()*/);
         mic[3].setOnClickListener(v -> micCalling(inGender) /*mic[3] is associated with inGender & hence, that is passed to micCalling()*/);
+
+        messageBox=(TextView) findViewById(R.id.messageBoxPI);
 
         proceed=(Button) findViewById(R.id.btnProceed);
         proceed.setOnClickListener(v -> {
@@ -136,8 +140,8 @@ public class PatientInfo extends AppCompatActivity {
         {
             // hit the API -> Volley
             StringRequest stringRequest = new StringRequest(Request.Method.POST /*The Post Method is used for Flask API Connection*/, URL /*URL for connection is specified*/,
-                    response -> Toast.makeText(PatientInfo.this,"Testing API Connection", Toast.LENGTH_SHORT).show(),
-                    error -> Toast.makeText(PatientInfo.this, "API Connection Error", Toast.LENGTH_SHORT).show()){
+                    response -> messageBox.setText("Testing API Connection"),
+                    error -> messageBox.setText("API Connection Error")){
                 @Override
                 protected Map getParams(){ //Function gets the Parameters to be passed to the API
                     Map params = new HashMap();
