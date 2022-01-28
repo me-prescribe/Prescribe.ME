@@ -3,4 +3,5 @@
     <string name="LDMode">Dark</string>
     <string name="blank_value">No Value Found</string>
     <string name="restart_presc_warn">Note: Going Home/Restarting Resets Everything including Patient Information and Prescriptions Uttered</string>
+    <string name="tag_line">Voice Prescription Using NLU</string>
 </resources>
