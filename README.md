@@ -137,4 +137,7 @@ Privacy Policy has been published separately. Encompassing the Privacy Policy an
   * [Berkshire Swash](https://fonts.google.com/specimen/Berkshire+Swash) for Doctor Name in Prescription
   * [EB Garamond](https://fonts.google.com/specimen/EB+Garamond) for other Doctor Info in Prescription
   * [Allerta Stencil](https://fonts.google.com/specimen/Allerta+Stencil) for Patient Info in Prescription
+  * [Cantata One](https://fonts.google.com/specimen/Cantata+One) for Table Heading in Prescription
   * [Aldrich](https://fonts.google.com/specimen/Aldrich) for Drug Name & INN
+  * [Baumans](https://fonts.google.com/specimen/Baumans) for Other Table Contents
+  * [Cabin](https://fonts.google.com/specimen/Cabin) for Diagnosis & Additional Information
