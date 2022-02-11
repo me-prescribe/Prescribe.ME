@@ -4,4 +4,8 @@
     <string name="blank_value">No Value Found</string>
     <string name="restart_presc_warn">Note: Going Home/Restarting Resets Everything including Patient Information and Prescriptions Uttered</string>
     <string name="tag_line">Voice Prescription Using NLU</string>
+    <string name="ABOUT">https://me-prescribe.github.io/Prescribe.ME-HTML/about-night.html</string>
+    <string name="PRIVACY">https://me-prescribe.github.io/Prescribe.ME-HTML/privacy-night.html</string>
+    <string name="PAPER2021">https://dx.doi.org/10.2139/ssrn.3867738</string>
+    <string name="FEEDBACK">https://docs.google.com/forms/d/e/1FAIpQLSdxMm5AI7SkPzv21mAL2yH7fvJnug9yTVR_SZhztG16rXoQwQ/viewform?usp=sf_link</string>
 </resources>

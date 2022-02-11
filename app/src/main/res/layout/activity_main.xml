@@ -101,6 +101,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/round_button"
             android:text="Sign Out"
+            android:drawableLeft="@drawable/ic_signout"
+            android:paddingLeft="20sp"
             app:backgroundTint="@color/foreground"
             android:textColor="@color/background"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -108,52 +110,6 @@
             app:layout_constraintEnd_toEndOf="@+id/btnViewSign"
             app:layout_constraintStart_toStartOf="@+id/btnViewProfile"
             app:layout_constraintTop_toBottomOf="@+id/btnViewProfile" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:layout_constraintHorizontal_bias="0.95">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/LightMode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_day"
-                android:layout_gravity="center_horizontal"
-                android:visibility="gone"/>
-
-            <ImageView
-                android:id="@+id/DarkMode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_night"
-                android:layout_gravity="center_horizontal"
-                android:visibility="gone"/>
-
-        </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/LDMode"
-                android:textStyle="bold"
-                android:textColor="@color/foreground"
-                android:layout_gravity="center_horizontal"/>
-
-                <!--The value of string changes upon Light or Dark Mode-->
-                <!--i.e. "Dark" in Light Mode & "Light" in Dark Mode-->
-    </LinearLayout>
 
         <Button
             android:id="@+id/btnPrescribe"
@@ -169,6 +125,374 @@
             app:layout_constraintTop_toBottomOf="@id/WelcomeLL"
             app:layout_constraintVertical_bias="0.0"
             android:layout_marginTop="50sp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01"
+            app:layout_constraintHorizontal_bias="0.95"
+            android:id="@+id/MenuLL"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imgMenu"
+                android:src="@drawable/ic_menu"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtMenu"
+                android:text="Menu"
+                android:textStyle="bold"
+                android:textColor="@color/foreground"/>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5sp"
+            android:elevation="10sp"
+            android:id="@+id/MainMenuCV"
+            android:outlineAmbientShadowColor="@color/foreground"
+            android:outlineSpotShadowColor="@color/foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01"
+            app:layout_constraintHorizontal_bias="0.95"
+            android:background="@color/background"
+            android:backgroundTint="@color/background"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/BackMenuLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgBack"
+                        android:src="@drawable/ic_back_menu"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtBack"
+                        android:textColor="@color/foreground"
+                        android:text="Back"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/DarkLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="center"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgDark"
+                        android:src="@drawable/ic_night"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtDark"
+                        android:textColor="@color/foreground"
+                        android:text="@string/LDMode"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <!--The value of string changes upon Light or Dark Mode-->
+                    <!--i.e. "Dark" in Light Mode & "Light" in Dark Mode-->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/LightLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="center"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgLight"
+                        android:src="@drawable/ic_day"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtLight"
+                        android:textColor="@color/foreground"
+                        android:text="@string/LDMode"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <!--The value of string changes upon Light or Dark Mode-->
+                    <!--i.e. "Dark" in Light Mode & "Light" in Dark Mode-->
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/AboutLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgAbout"
+                        android:src="@drawable/ic_info"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtAbout"
+                        android:textColor="@color/foreground"
+                        android:text="About"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/PrivacyLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgPrivacy"
+                        android:src="@drawable/ic_privacy"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtPrivacy"
+                        android:textColor="@color/foreground"
+                        android:text="Privacy"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/Paper2021LL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgPaper1"
+                        android:src="@drawable/ic_pdf"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/foreground"
+                            android:text="Paper"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" '21"
+                            android:textColor="@color/foreground"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/Paper2022LL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="5sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgPaper2"
+                        android:src="@drawable/ic_pdf"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/foreground"
+                        android:text="Paper"
+                        android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" '22"
+                            android:textColor="@color/foreground"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/FeedBackLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="10sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgFeedback"
+                        android:src="@drawable/ic_feedback"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtFeedback"
+                        android:textColor="@color/foreground"
+                        android:text="Feedback"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/WebsiteLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="10sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgWebsite"
+                        android:src="@drawable/ic_website"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtWebsite"
+                        android:textColor="@color/foreground"
+                        android:text="Website"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/SignOutLL"
+                    android:layout_marginTop="10sp"
+                    android:layout_marginStart="5sp"
+                    android:layout_marginEnd="5sp"
+                    android:layout_marginBottom="10sp"
+                    android:layout_gravity="center">
+
+                    <ImageView
+                        android:layout_width="25sp"
+                        android:layout_height="25sp"
+                        android:id="@+id/imgSignOut"
+                        android:src="@drawable/ic_signout"
+                        app:tint="@color/foreground"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txtSignOut"
+                        android:textColor="@color/foreground"
+                        android:text="Sign Out"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

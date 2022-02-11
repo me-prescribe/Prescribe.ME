@@ -2,6 +2,7 @@ package com.example.prescribeme;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
     TextView txtDrName;
     Button btnPrescribe, btnSignOut, btnView, btnSign;
-    ImageView light, dark;
+    CardView mainMenuCV;
+    LinearLayout BackLL, AboutLL, DarkLL, LightLL, MenuLL, PrivacyLL, Paper2021LL, Paper2022LL, FeedbackLL, WebsiteLL, SignOutLL;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -72,30 +75,62 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, UpdateSignature.class));
         }); //Will lead user to Update Signature Class
 
-        light=(ImageView) findViewById(R.id.LightMode); //Sun Image to show Light/Day Mode
-        light.setOnClickListener(v -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //Turns off Dark Mode
-            editor.putBoolean("isDarkModeOn", false); //set Dark Mode to false on selection
-            editor.apply();
-        });
+        mainMenuCV = (CardView) findViewById(R.id.MainMenuCV); //References the CardView of Menu
+        MenuLL = (LinearLayout) findViewById(R.id.MenuLL); //LinearLayout which shows icon & text of 'Menu'
+        MenuLL.setOnClickListener(v -> mainMenuCV.setVisibility(View.VISIBLE)); //When Menu LL is clicked display CardView
 
-        dark=(ImageView) findViewById(R.id.DarkMode); //Moon Image to show Dark/Night Mode
-        dark.setOnClickListener(v -> {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); //Turns on Dark Mode
-            editor.putBoolean("isDarkModeOn", true); //set Dark Mode to true on selection
-            editor.apply();
+        DarkLL=(LinearLayout) findViewById(R.id.DarkLL); //LinearLayout of Dark Mode Option
+        LightLL=(LinearLayout) findViewById(R.id.LightLL); //LinearLayout of Light Mode Option
+        AboutLL=(LinearLayout) findViewById(R.id.AboutLL); //LinearLayout of About Us Option
+        PrivacyLL=(LinearLayout) findViewById(R.id.PrivacyLL); //LinearLayout of Privacy Policy Option
+        WebsiteLL=(LinearLayout) findViewById(R.id.WebsiteLL); //LinearLayout of Website Option
+        BackLL=(LinearLayout) findViewById(R.id.BackMenuLL); //LinearLayout of Back Option
+        FeedbackLL=(LinearLayout) findViewById(R.id.FeedBackLL); //LinearLayout of Feedback Option
+        Paper2021LL=(LinearLayout) findViewById(R.id.Paper2021LL); //LinearLayout of Paper 2021 Option
+        Paper2022LL=(LinearLayout) findViewById(R.id.Paper2022LL); //LinearLayout of Paper 2022 Option
+        SignOutLL=(LinearLayout) findViewById(R.id.SignOutLL); //LinearLayout of Sign Out Option
+        /**All Linear Layouts have an Icon & a Text*/
+        //Initial Dark Mode detection
+        if(isDarkModeOn){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); //Setting App Theme to Night Mode
+            DarkLL.setVisibility(View.GONE); //Dark Mode LL will not be shown
+            LightLL.setVisibility(View.VISIBLE); //Light Mode LL will be shown
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //Setting App Theme to Day Mode
+            DarkLL.setVisibility(View.VISIBLE); //Dark Mode LL will not be shown
+            LightLL.setVisibility(View.GONE); //Light Mode LL will not be shown
+        }
+        DarkLL.setOnClickListener(v -> { //When Dark Mode LL is clicked
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); //Switch App Theme to Night Mode
+            editor.putBoolean("isDarkModeOn", true); //Change isDarkMode boolean to true
+            editor.apply(); //Apply Changes
         });
+        LightLL.setOnClickListener(v -> { //When Light Mode LL is clicked
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //Switch App Theme to Day Mode
+            editor.putBoolean("isDarkModeOn", false); //Change isDarkMode boolean to false
+            editor.apply(); //Apply Changes
+        });
+        AboutLL.setOnClickListener(v -> openBrowser(getString(R.string.ABOUT)));
+        PrivacyLL.setOnClickListener(v -> openBrowser(getString(R.string.PRIVACY)));
+        WebsiteLL.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show());
+        Paper2021LL.setOnClickListener(v -> openBrowser(getString(R.string.PAPER2021)));
+        Paper2022LL.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show());
+        FeedbackLL.setOnClickListener(v -> openBrowser(getString(R.string.FEEDBACK)));
+        SignOutLL.setOnClickListener(v -> {
+            mAuth.signOut();
+            Toast.makeText(MainActivity.this, "Logout Successful", Toast.LENGTH_SHORT).show();
+            Intent loginInt = new Intent(MainActivity.this, LoginActivity.class);
+            loginInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(loginInt);
+        });
+        BackLL.setOnClickListener(v -> mainMenuCV.setVisibility(View.GONE));
+    }
 
-        //initial mode when launched
-        if (isDarkModeOn) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); //YES to Dark Mode
-            light.setVisibility(View.VISIBLE); //Will show option to switch to Light Mode
-            dark.setVisibility(View.GONE);
-        }
-        else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //NO to Dark Mode
-            dark.setVisibility(View.VISIBLE); //Will show option to switch to Light Mode
-            light.setVisibility(View.GONE);
-        }
+    private void openBrowser(String URL) {
+        mainMenuCV.setVisibility(View.GONE);
+        Intent browseInt = new Intent(MainActivity.this, InAppBrowser.class);
+        browseInt.putExtra("URL", URL);
+        startActivity(browseInt);
     }
 }
