@@ -136,7 +136,7 @@ public class RegisterActivity extends AppCompatActivity {
                     User.put("Profile Info", Profile);
                     User.put("Sign Uploaded", false);
                     realRef.updateChildren(User);
-                    Intent  updInt=new Intent(RegisterActivity.this, UpdateProfile.class); //Calling Update Profile Activity
+                    Intent  updInt=new Intent(RegisterActivity.this, EmailVerification.class); //Calling Email Verification Activity
                     updInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(updInt);
                 } else {

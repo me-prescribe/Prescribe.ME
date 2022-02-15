@@ -54,6 +54,8 @@ public class UpdateSignature extends AppCompatActivity {
         warn= ContextCompat.getColor(UpdateSignature.this, R.color.red); //Saving RGB value of red color as int
         success= ContextCompat.getColor(UpdateSignature.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
 
+        Intent signInt=getIntent();
+
         mAuth=FirebaseAuth.getInstance(); //FireBase Authentication Instance
         user=mAuth.getCurrentUser(); //Getting Current User
         UserID=user.getUid(); //Unique User ID of User

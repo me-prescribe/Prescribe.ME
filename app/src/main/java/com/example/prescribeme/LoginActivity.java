@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                     if(user.isEmailVerified())
                     {
                         Intent mainInt = new Intent(LoginActivity.this, MainActivity.class); //Calling Main Activity
-                        mainInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        mainInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(mainInt);
                     }
                     else {

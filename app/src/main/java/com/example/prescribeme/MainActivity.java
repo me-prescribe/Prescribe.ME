@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
         txtDrName=(TextView)findViewById(R.id.txtDrName);
         txtDrName.setText("Dr. " + user.getDisplayName()); //Displaying Name of Doctor(User)
+        if (txtDrName.getText().toString().trim().equals("Dr.")){
+            Toast.makeText(MainActivity.this, "Please Update Your Profile First!", Toast.LENGTH_LONG).show();
+            Intent updInt=new Intent(MainActivity.this, UpdateProfile.class);
+            updInt.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(updInt);
+        }
 
         btnPrescribe=(Button)findViewById(R.id.btnPrescribe);
         btnPrescribe.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PatientInfo.class))); //Directs User to PatientInfo Activity

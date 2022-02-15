@@ -329,6 +329,20 @@
             app:layout_constraintVertical_bias="0.99"
             android:layout_marginTop="30sp"/>
         <!--This TextBox will be used to show any messages to the user-->
-    
+
+    <TextView
+        android:id="@+id/signUpload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:shadowColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdateProfile"
+        app:layout_constraintVertical_bias="0.99"
+        android:visibility="gone"
+        android:layout_marginTop="30sp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

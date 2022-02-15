@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.widget.Button;
@@ -35,7 +34,7 @@ public class UpdateProfile extends AppCompatActivity {
     EditText usrFName, usrLName, usrAadharNo, usrQualifications, usrRegistrationNo, usrClinic, usrContact, dummy;
     ImageButton[] mic = new ImageButton[7]; //Array for storing all the mic buttons
     Button update;
-    TextView messageBox;
+    TextView messageBox, signUpload;
 
     String FName, LName, AadharNo, Qualifications, RegistrationNo, Clinic, Contact;
     String UserID, Name;
@@ -74,6 +73,8 @@ public class UpdateProfile extends AppCompatActivity {
         messageBox.setText("Please Wait While We Load Your Data"); //We now show our messages through the Message Box
         messageBox.setTextColor(warn);
         displayUserProfile();
+
+        signUpload=(TextView) findViewById(R.id.signUpload);
 
         mic[0]=(ImageButton) findViewById(R.id.mic_FName);
         mic[1]=(ImageButton) findViewById(R.id.mic_LName);
@@ -158,8 +159,17 @@ public class UpdateProfile extends AppCompatActivity {
                                         if (task1.isSuccessful()){
                                             messageBox.setText("Database Update Successful!");
                                             messageBox.setTextColor(success);
-                                            Toast.makeText(UpdateProfile.this, "Loading Profile Details", Toast.LENGTH_LONG).show();
-                                            startActivity(new Intent(UpdateProfile.this, ViewProfile.class));
+                                            if (signUpload.getText().toString().equals("false"))
+                                            {
+                                                Toast.makeText(UpdateProfile.this, "Please Update Signature First!", Toast.LENGTH_LONG).show();
+                                                Intent signInt=new Intent(UpdateProfile.this, UpdateSignature.class);
+                                                signInt.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                                startActivity(signInt);
+                                            }
+                                            else{
+                                                Toast.makeText(UpdateProfile.this, "Loading Profile Details", Toast.LENGTH_LONG).show();
+                                                startActivity(new Intent(UpdateProfile.this, ViewProfile.class));
+                                            }
                                         }
                                         else{
                                             messageBox.setText("Database Update Unsuccessful");
@@ -269,6 +279,30 @@ public class UpdateProfile extends AppCompatActivity {
                         }
                     }
                 }
+                realRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot snapshot1 : snapshot.getChildren())
+                        {
+                            String snap_value = snapshot1.getValue().toString(); //Extract Value of Individual Child
+                            String snap_name = snapshot1.getKey(); //Enter Name/Key of Individual Child
+                            switch(snap_name)
+                            {
+                                case "Sign Uploaded":
+                                    signUpload.setText(snap_value);
+                                case "Completed":
+                                case "Profile Info": break;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(UpdateProfile.this, "Error: "+error, Toast.LENGTH_SHORT).show();
+                        messageBox.setText("Error: "+error);
+                        messageBox.setTextColor(warn);
+                    }
+                });
                 messageBox.setText("You May Now Proceed to enter your details");
                 messageBox.setTextColor(success);
             }
