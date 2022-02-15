@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        tools:context=".EmailVerification">
+
+        <TextView
+            android:id="@+id/VerifyHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verify Email"
+            android:textColor="@color/foreground"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.100000024" />
+
+        <TextView
+            android:id="@+id/EmailVerify"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32sp"
+            android:layout_marginLeft="32sp"
+            android:layout_marginTop="64sp"
+            android:layout_marginEnd="32sp"
+            android:layout_marginRight="32sp"
+            android:background="@drawable/input_outline"
+            android:drawablePadding="10sp"
+            android:ems="10"
+            android:paddingStart="20sp"
+            android:paddingTop="10sp"
+            android:paddingEnd="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/foreground"
+            android:textColorHint="@color/foreground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/VerifyHeader"
+            app:drawableLeftCompat="@drawable/ic_email" />
+
+        <TextView
+            android:id="@+id/PasswordVerify"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:background="@drawable/input_outline"
+            android:drawablePadding="10sp"
+            android:ems="10"
+            android:paddingStart="20sp"
+            android:paddingTop="10sp"
+            android:paddingEnd="10sp"
+            android:paddingBottom="10sp"
+            android:textColor="@color/foreground"
+            android:textColorHint="@color/foreground"
+            app:layout_constraintEnd_toEndOf="@+id/EmailVerify"
+            app:layout_constraintStart_toStartOf="@+id/EmailVerify"
+            app:layout_constraintTop_toBottomOf="@+id/EmailVerify"
+            android:textStyle="bold"
+            android:text="*********"
+            android:textSize="20sp"
+            app:drawableStartCompat="@drawable/ic_security" />
+
+        <Button
+            android:id="@+id/btnVerify"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:background="@drawable/round_button"
+            android:text="Verify Email"
+            app:backgroundTint="@color/foreground"
+            app:layout_constraintEnd_toEndOf="@+id/PasswordVerify"
+            app:layout_constraintStart_toStartOf="@+id/PasswordVerify"
+            app:layout_constraintTop_toBottomOf="@+id/PasswordVerify" />
+
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:background="@drawable/round_button"
+            android:text="Sign Out"
+            app:backgroundTint="@color/foreground"
+            app:layout_constraintEnd_toEndOf="@+id/btnVerify"
+            app:layout_constraintStart_toStartOf="@+id/btnVerify"
+            app:layout_constraintTop_toBottomOf="@+id/btnVerify" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

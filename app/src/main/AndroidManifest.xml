@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PrescribeME">
         <activity
+            android:name=".EmailVerification"
+            android:exported="false" />
+        <activity
             android:name=".InAppBrowser"
             android:exported="false" />
         <activity

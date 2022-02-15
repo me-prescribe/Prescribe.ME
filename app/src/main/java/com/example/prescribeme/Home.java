@@ -21,10 +21,19 @@ public class Home extends Application {
 
         if(user!=null) //i.e. user does exist/is signed in
         {
-            Intent intent;
-            intent=new Intent(Home.this, MainActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
+            if(user.isEmailVerified())
+            {
+                Intent intent;
+                intent=new Intent(Home.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+            else
+            {
+                Intent verifyInt=new Intent(Home.this, EmailVerification.class);
+                verifyInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(verifyInt);
+            }
         }
         else {
             Intent intent;

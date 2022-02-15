@@ -61,8 +61,8 @@ public class ViewProfile extends AppCompatActivity {
 
         btnGoUpdate=(Button)findViewById(R.id.btnViewUpdate);
         btnGoUpdate.setOnClickListener(view -> {
-            Intent updint=new Intent(ViewProfile.this, UpdateProfile.class);
-            startActivity(updint);
+            Intent updInt=new Intent(ViewProfile.this, UpdateProfile.class);
+            startActivity(updInt);
         });
 
         btnHome=(Button)findViewById(R.id.btnHome);

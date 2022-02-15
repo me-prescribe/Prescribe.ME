@@ -131,14 +131,14 @@ public class RegisterActivity extends AppCompatActivity {
                     Profile.put("Qualifications", false);
                     Profile.put("Clinic", false);
                     Profile.put("Contact", false);
-                    HashMap User = new HashMap();
+                    HashMap<String, Object> User = new HashMap<>();
                     User.put("Completed", false);
                     User.put("Profile Info", Profile);
                     User.put("Sign Uploaded", false);
                     realRef.updateChildren(User);
-                    Intent  mainInt=new Intent(RegisterActivity.this, MainActivity.class); //Calling Main Activity
-                    mainInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(mainInt);
+                    Intent  updInt=new Intent(RegisterActivity.this, UpdateProfile.class); //Calling Update Profile Activity
+                    updInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(updInt);
                 } else {
                     Toast.makeText(RegisterActivity.this, "User Registration Unsuccessful", Toast.LENGTH_SHORT).show();
                     mLoadingBar.dismiss();

@@ -54,7 +54,7 @@ public class UpdateProfile extends AppCompatActivity {
         success= ContextCompat.getColor(UpdateProfile.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
 
         //Receiving Intent from ViewProfile Activity
-        Intent updint=getIntent();
+        Intent updInt=getIntent();
 
         mAuth= FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
