@@ -27,11 +27,12 @@ public class PatientInfo extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SPEECH_INPUT = 110;
     private final String URL = "https://prescribe-me.herokuapp.com/predict";
+    private final String PrescriptionNo = PrescriptionHTML.generatePrescriptionNo();
 
     EditText inFName, inLName, inAge, inGender, dummy;
     ImageButton[] mic =new ImageButton[4];
     Button proceed;
-    TextView messageBox;
+    TextView messageBox, txtPrescriptionNo;
 
     String FName, LName, Age, Gender;
 
@@ -56,6 +57,8 @@ public class PatientInfo extends AppCompatActivity {
         mic[3].setOnClickListener(v -> micCalling(inGender) /*mic[3] is associated with inGender & hence, that is passed to micCalling()*/);
 
         messageBox=(TextView) findViewById(R.id.messageBoxPI);
+        txtPrescriptionNo=(TextView) findViewById(R.id.txtPrescriptionNo);
+        txtPrescriptionNo.setText("Prescription #" + PrescriptionNo);
 
         proceed=(Button) findViewById(R.id.btnProceed);
         proceed.setOnClickListener(v -> {
@@ -65,6 +68,7 @@ public class PatientInfo extends AppCompatActivity {
                 presInt.putExtra("Name", FName+" "+LName);
                 presInt.putExtra("Age", Age);
                 presInt.putExtra("Gender", Gender);
+                presInt.putExtra("Prescription No", PrescriptionNo);
                 startActivity(presInt);
             }
         });

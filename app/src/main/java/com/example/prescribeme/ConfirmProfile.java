@@ -26,7 +26,7 @@ import java.util.Locale;
 
 public class ConfirmProfile extends AppCompatActivity {
     
-    TextView drName, drQualifications, drContact, drClinic, patName, patAge, patGender, messageBox;
+    TextView drName, drQualifications, drContact, drClinic, patName, patAge, patGender, messageBox, txtPrescriptionNo;
     Button btnHTML, btnReset;
 
     String DrName, DrQualifications, DrContact, DrClinic, PatName, PatAge, PatGender;
@@ -55,6 +55,7 @@ public class ConfirmProfile extends AppCompatActivity {
         Diagnosis=confInt.getExtras().getString("Diagnosis",""); //Getting String named "Diagnosis"
         Information=confInt.getExtras().getString("Information",""); //Getting String named "Information"
         PresHTML=confInt.getExtras().getString("PresHTML",""); //Getting String named "PresHTML"
+        PrescriptionNo=confInt.getExtras().getString("Prescription No",""); //Getting String named "Prescription No"
 
         mAuth=FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();
@@ -74,6 +75,8 @@ public class ConfirmProfile extends AppCompatActivity {
         messageBox=(TextView) findViewById(R.id.messageBoxCP);
         messageBox.setText("Please Wait till we load Profile Details");
         messageBox.setTextColor(warn);
+
+        txtPrescriptionNo.setText("Prescription #" + PrescriptionNo);
 
         patName.setText(PatName);
         patAge.setText(PatAge);
@@ -104,7 +107,6 @@ public class ConfirmProfile extends AppCompatActivity {
                 DrQualifications=drQualifications.getText().toString();
                 DrContact=drContact.getText().toString();
                 DrClinic=drClinic.getText().toString();
-                PrescriptionNo=generatePrescriptionNo();
                 doc_info= new String[]{DrName, DrQualifications, DrContact, DrClinic};
                 pat_info= new String[]{PatName, PatAge, PatGender};
                 //signURL=txtSignURL.getText().toString();
@@ -120,18 +122,6 @@ public class ConfirmProfile extends AppCompatActivity {
                 startActivity(HTMLInt);
             }
         });
-    }
-
-    //Function to generate Random 8 digit Prescription No
-    private String generatePrescriptionNo() {
-        String pres_no="";
-        String alphabets="ABCDEFGHIJKLMNOPQRSTUVWXYZ", numbers="0123456789"; //Loading Set of Alphabets & Numbers
-        for(int i=0; i<8; i++)
-            if(i>1 && i<5) //Middle 4 digits are number
-                pres_no=pres_no + numbers.charAt((int) ((int) 0 + 10*Math.random())); //Randomly picks a number from the String
-            else //2 digits on each end are alphabets
-                pres_no=pres_no + alphabets.charAt((int) ((int) 0 + 26*Math.random())); //Randomly picks an alphabet from the String
-        return pres_no;
     }
 
     //Function to display Doctor Profile in their respective TextView

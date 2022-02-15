@@ -167,4 +167,16 @@ public class PrescriptionHTML {
                 "<b>" + title + ":</b> " +
                 message + "</div>";
     }
+
+    //Function to generate Random 8 digit Prescription No
+    public static String generatePrescriptionNo() {
+        String pres_no="";
+        String alphabets="ABCDEFGHIJKLMNOPQRSTUVWXYZ", numbers="0123456789"; //Loading Set of Alphabets & Numbers
+        for(int i=0; i<8; i++)
+            if(i>1 && i<5) //Middle 4 digits are number
+                pres_no=pres_no + numbers.charAt((int) ((int) 0 + 10*Math.random())); //Randomly picks a number from the String
+            else //2 digits on each end are alphabets
+                pres_no=pres_no + alphabets.charAt((int) ((int) 0 + 26*Math.random())); //Randomly picks an alphabet from the String
+        return pres_no;
+    }
 }

@@ -12,19 +12,35 @@
         android:layout_height="0dp"
         tools:context=".PatientInfo">
 
-        <TextView
+        <LinearLayout
             android:id="@+id/PatInfoHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter Patient Info"
-            android:textColor="@color/foreground"
-            android:textSize="36sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.100000024" />
+            app:layout_constraintVertical_bias="0.100000024"
+            android:orientation="vertical"
+            android:textAlignment="center"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter Patient Info"
+                android:textColor="@color/foreground"
+                android:textSize="36sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtPrescriptionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prescription #"
+                android:textColor="@color/foreground"
+                android:textStyle="bold"/>
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/PatFNameLL"

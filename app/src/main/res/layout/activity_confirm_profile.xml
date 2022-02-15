@@ -4,25 +4,39 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         tools:context=".ConfirmProfile">
 
-        <TextView
+        <LinearLayout
             android:id="@+id/ConfirmHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
-            android:text="Confirm Information"
-            android:textColor="@color/foreground"
-            android:textSize="36sp"
-            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm Information"
+                android:textColor="@color/foreground"
+                android:textSize="36sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtPrescriptionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prescription #"
+                android:textColor="@color/foreground"
+                android:textStyle="bold"/>
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"

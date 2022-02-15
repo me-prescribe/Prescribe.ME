@@ -40,10 +40,10 @@ public class Prescribe extends AppCompatActivity {
 
     EditText inDiagnosis, inPrescription, inInformation, dummy;
     ImageButton[] mic = new ImageButton[3];
-    TextView txtPrescribe, messageBox, SlotName, SlotValue;
+    TextView txtPrescribe, messageBox, SlotName, SlotValue, txtPrescriptionNo;
     Button btnGenerate;
 
-    String Diagnosis, Prescription, Information;
+    String Diagnosis, Prescription, Information, PrescriptionNo;
     String Name, Age, Gender, PresHTML;
     int warn, success;
 
@@ -60,12 +60,15 @@ public class Prescribe extends AppCompatActivity {
         Name=presInt.getExtras().getString("Name", ""); //Getting String Named "Name"
         Age=presInt.getExtras().getString("Age", ""); //Getting String Named "Age"
         Gender=presInt.getExtras().getString("Gender", ""); //Getting String Named "Gender"
+        PrescriptionNo=presInt.getExtras().getString("Prescription No", ""); //Getting String Named "Prescription No"
 
         inDiagnosis=(EditText) findViewById(R.id.Diagnosis);
         inPrescription=(EditText) findViewById(R.id.Medicine);
         inInformation=(EditText) findViewById(R.id.Information);
 
         messageBox=(TextView) findViewById(R.id.messageBoxPres); //References the Message Box
+        txtPrescriptionNo=(TextView) findViewById(R.id.txtPrescriptionNo);
+        txtPrescriptionNo.setText("Prescription #" + PrescriptionNo);
 
         SlotName=(TextView) findViewById(R.id.slot_name);
         SlotValue=(TextView) findViewById(R.id.slot_value);
@@ -124,6 +127,7 @@ public class Prescribe extends AppCompatActivity {
                     confInt.putExtra("Gender",Gender);
                     confInt.putExtra("Diagnosis", Diagnosis);
                     confInt.putExtra("Information", Information);
+                    confInt.putExtra("Prescription No", PrescriptionNo);
                     startActivity(confInt);
                 }
             }
