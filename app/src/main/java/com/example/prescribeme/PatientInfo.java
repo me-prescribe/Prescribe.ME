@@ -27,7 +27,7 @@ public class PatientInfo extends AppCompatActivity {
 
     private static final int REQUEST_CODE_SPEECH_INPUT = 110;
     private final String URL = "https://prescribe-me.herokuapp.com/predict";
-    private final String PrescriptionNo = PrescriptionHTML.generatePrescriptionNo();
+    private final String PrescriptionNo = PrescriptionHTML.generatePrescriptionNo(); //A new randomly generated Prescription No is finalised for each Prescription
 
     EditText inFName, inLName, inAge, inGender, dummy;
     ImageButton[] mic =new ImageButton[4];
@@ -58,7 +58,7 @@ public class PatientInfo extends AppCompatActivity {
 
         messageBox=(TextView) findViewById(R.id.messageBoxPI);
         txtPrescriptionNo=(TextView) findViewById(R.id.txtPrescriptionNo);
-        txtPrescriptionNo.setText("Prescription #" + PrescriptionNo);
+        txtPrescriptionNo.setText("Prescription #" + PrescriptionNo); //Displaying the Prescription No
 
         proceed=(Button) findViewById(R.id.btnProceed);
         proceed.setOnClickListener(v -> {

@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +17,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,11 +27,11 @@ import java.util.Locale;
 
 public class ConfirmProfile extends AppCompatActivity {
     
-    TextView drName, drQualifications, drContact, drClinic, patName, patAge, patGender, messageBox, txtPrescriptionNo;
+    TextView drName, drQualifications, drContact, drClinic, patName, patAge, patGender, messageBox, txtPrescriptionNo, txtSignURL;
     Button btnHTML, btnReset;
 
     String DrName, DrQualifications, DrContact, DrClinic, PatName, PatAge, PatGender;
-    String Diagnosis, PresHTML, Information, UserID;
+    String Diagnosis, PresHTML, Information, UserID, signURL;
     String todayDate, PrescriptionNo, Head, DocHTML, PatHTML, DiagnosisHTML="", InfoHTML="", Footer, HTML;
     String[] doc_info, pat_info;
     int warn, success;
@@ -39,6 +40,8 @@ public class ConfirmProfile extends AppCompatActivity {
     FirebaseUser user;
     FirebaseDatabase realDB;
     DatabaseReference realRef;
+    FirebaseStorage storage;
+    StorageReference signRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,9 @@ public class ConfirmProfile extends AppCompatActivity {
         UserID=user.getUid();
         realDB=FirebaseDatabase.getInstance();
         realRef=realDB.getReference().child(UserID);
-        
+        storage= FirebaseStorage.getInstance(); //References the Firebase Storage
+        signRef=storage.getReference().child("Signatures").child(UserID.trim()+".jpg"); //References the Signature saved as <UserID>.jpg
+
         drName=(TextView) findViewById(R.id.viewDrName);
         drQualifications=(TextView) findViewById(R.id.viewDrQualifications);
         drContact=(TextView) findViewById(R.id.viewDrContact);
@@ -76,7 +81,9 @@ public class ConfirmProfile extends AppCompatActivity {
         messageBox.setText("Please Wait till we load Profile Details");
         messageBox.setTextColor(warn);
 
+        txtPrescriptionNo = (TextView) findViewById(R.id.txtPrescriptionNo);
         txtPrescriptionNo.setText("Prescription #" + PrescriptionNo);
+        txtSignURL=(TextView) findViewById(R.id.txtSignURL);
 
         patName.setText(PatName);
         patAge.setText(PatAge);
@@ -100,27 +107,31 @@ public class ConfirmProfile extends AppCompatActivity {
             InfoHTML=PrescriptionHTML.getDiagnosisInfo("Additional Information", Information);
 
         btnHTML=(Button) findViewById(R.id.btnConfirm);
-        btnHTML.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DrName=drName.getText().toString();
-                DrQualifications=drQualifications.getText().toString();
-                DrContact=drContact.getText().toString();
-                DrClinic=drClinic.getText().toString();
-                doc_info= new String[]{DrName, DrQualifications, DrContact, DrClinic};
-                pat_info= new String[]{PatName, PatAge, PatGender};
-                //signURL=txtSignURL.getText().toString();
-                PatHTML=PrescriptionHTML.getPatInfo(pat_info, todayDate, PrescriptionNo);
-                DocHTML=PrescriptionHTML.getDocInfo(doc_info);
-                Head=PrescriptionHTML.getHeadHTML();
-                Footer=PrescriptionHTML.getFooterHTML(DrName);
-                HTML=Head+DocHTML+PatHTML+DiagnosisHTML+PresHTML+InfoHTML+Footer;
-                Intent HTMLInt=new Intent(ConfirmProfile.this, ViewHTML.class);
-                HTMLInt.putExtra("HTML", HTML);
-                HTMLInt.putExtra("Prescription No", PrescriptionNo);
-                HTMLInt.putExtra("Date", todayDate);
-                startActivity(HTMLInt);
-            }
+        btnHTML.setOnClickListener(v -> {
+            DrName=drName.getText().toString();
+            DrQualifications=drQualifications.getText().toString();
+            DrContact=drContact.getText().toString();
+            DrClinic=drClinic.getText().toString();
+            doc_info= new String[]{DrName, DrQualifications, DrContact, DrClinic};
+            pat_info= new String[]{PatName, PatAge, PatGender};
+            signURL=txtSignURL.getText().toString();
+            PatHTML=PrescriptionHTML.getPatInfo(pat_info, todayDate, PrescriptionNo);
+            DocHTML=PrescriptionHTML.getDocInfo(doc_info);
+            Head=PrescriptionHTML.getHeadHTML();
+            Footer=PrescriptionHTML.getFooterHTML(DrName, signURL);
+            HTML=Head+DocHTML+PatHTML+DiagnosisHTML+PresHTML+InfoHTML+Footer;
+            Intent HTMLInt=new Intent(ConfirmProfile.this, ViewHTML.class);
+            HTMLInt.putExtra("HTML", HTML);
+            HTMLInt.putExtra("Prescription No", PrescriptionNo);
+            HTMLInt.putExtra("Date", todayDate);
+            startActivity(HTMLInt);
+        });
+
+        btnReset=(Button) findViewById(R.id.btnBack);
+        btnReset.setOnClickListener(v -> {
+            Intent mainInt = new Intent(ConfirmProfile.this, MainActivity.class);
+            mainInt.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(mainInt);
         });
     }
 
@@ -129,9 +140,10 @@ public class ConfirmProfile extends AppCompatActivity {
         realRef.child("Profile Info").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) { //Loads a snapshot of all children of given branch
+                signRef.getDownloadUrl().addOnSuccessListener(uri ->{ txtSignURL.setText(uri.toString()); //Saving the Download URL of Signature in TextView
                 messageBox.setText("Details Fetched Successfully");
                 messageBox.setTextColor(success);
-                int j=1;
+                });
                 for (DataSnapshot snapshot1 : snapshot.getChildren()){
                     String snap_value=snapshot1.getValue().toString();
                     String snap_name= snapshot1.getKey();
@@ -150,8 +162,7 @@ public class ConfirmProfile extends AppCompatActivity {
                         case "Registration No":
                         case "First Name":
                         case "Last Name":
-                        case "Aadhar No":
-                            break;
+                        case "Aadhar No": break;
                         default:
                             Toast.makeText(ConfirmProfile.this, "An Error Occurred while loading content", Toast.LENGTH_SHORT).show();
                     }

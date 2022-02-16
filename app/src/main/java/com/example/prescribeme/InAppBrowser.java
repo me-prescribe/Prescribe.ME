@@ -20,7 +20,7 @@ public class InAppBrowser extends AppCompatActivity {
         WebView webView=new WebView(this);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadUrl(URL);
+        webView.loadUrl(URL); //Load the URL in WebView as passed through Intent
         setContentView(webView);
     }
 }

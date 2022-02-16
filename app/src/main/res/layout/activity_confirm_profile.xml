@@ -428,5 +428,18 @@
             app:layout_constraintVertical_bias="0.99" />
         <!--This TextBox will be used to show any messages to the user-->
 
+        <TextView
+            android:id="@+id/txtSignURL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:shadowColor="@color/black"
+            android:layout_marginTop="30sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtBackWarning"
+            app:layout_constraintVertical_bias="0.99" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

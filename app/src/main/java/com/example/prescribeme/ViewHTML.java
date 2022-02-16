@@ -24,7 +24,7 @@ public class ViewHTML extends AppCompatActivity {
         webView=new WebView(this);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
-        webView.loadDataWithBaseURL("", HTML, "text/html", "UTF-8", "");
+        webView.loadDataWithBaseURL("", HTML, "text/html", "UTF-8", ""); //Displaying Prescription HTML using WebView
         setContentView(webView);
     }
 }

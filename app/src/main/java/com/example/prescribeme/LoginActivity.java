@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                     mLoadingBar.dismiss();
                     user=mAuth.getCurrentUser();
-                    if(user.isEmailVerified())
+                    if(user.isEmailVerified()) //Check if User's Email is Verified
                     {
                         Intent mainInt = new Intent(LoginActivity.this, MainActivity.class); //Calling Main Activity
                         mainInt.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);

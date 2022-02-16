@@ -21,7 +21,7 @@ public class Home extends Application {
 
         if(user!=null) //i.e. user does exist/is signed in
         {
-            if(user.isEmailVerified())
+            if(user.isEmailVerified()) //Check if User's Email is Verified or not
             {
                 Intent intent;
                 intent=new Intent(Home.this, MainActivity.class);

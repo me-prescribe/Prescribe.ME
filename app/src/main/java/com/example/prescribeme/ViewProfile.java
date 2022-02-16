@@ -67,8 +67,8 @@ public class ViewProfile extends AppCompatActivity {
 
         btnHome=(Button)findViewById(R.id.btnHome);
         btnHome.setOnClickListener(view -> {
-            Intent backint=new Intent(ViewProfile.this,MainActivity.class);
-            startActivity(backint);
+            Intent mainInt=new Intent(ViewProfile.this,MainActivity.class);
+            startActivity(mainInt);
         });
     }
 

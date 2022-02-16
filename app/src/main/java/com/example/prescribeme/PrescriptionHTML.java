@@ -152,13 +152,14 @@ public class PrescriptionHTML {
                 "</tr>";
     }
 
-    public static String getFooterHTML(String name){
+    public static String getFooterHTML(String name, String signURL){
         return "<br><br><br><br><br><br><br>" +
-                "<div align=\"right\" style=\"padding-right: 5%;\"><img src=\"https://static.cdn.wisestamp.com/wp-content/uploads/2020/08/Oprah-Winfrey-Signature-1.png\" style=\"height: 100px;\"></div>" +
-                "<div align=\"right\" style=\"padding-right: 5%;\">Dr. "+ name +"</div>" +
+                "<div align=\"right\" style=\"padding-right: 5%;\"><img src=\""+signURL+"\" style=\"height: 100px;\"></div>" +
+                "<div align=\"right\" style=\"padding-right: 5%; font-family: cursive\">Dr. "+ name +"</div>" +
                 "<footer><center>Made using <span>Prescribe.ME</span></center></footer>" +
                 "</body>" +
                 "</html>";
+        //https://static.cdn.wisestamp.com/wp-content/uploads/2020/08/Oprah-Winfrey-Signature-1.png
     }
 
     public static String getDiagnosisInfo(String title, String message){

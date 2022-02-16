@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,7 +15,6 @@ public class EmailVerification extends AppCompatActivity {
 
     TextView emailVerify;
     Button btnVerify, btnSignOut;
-    String EmailID;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -35,7 +33,7 @@ public class EmailVerification extends AppCompatActivity {
         emailVerify.setText(user.getEmail());
 
         btnVerify=(Button) findViewById(R.id.btnVerify);
-        btnVerify.setOnClickListener(v -> user.sendEmailVerification()
+        btnVerify.setOnClickListener(v -> user.sendEmailVerification() //Send Email Verification to User when user clicks on Verify Email Button
                 .addOnCompleteListener(EmailVerification.this, task -> {
                     if(task.isSuccessful())
                         Toast.makeText(EmailVerification.this, "Email Verification Sent Successful!", Toast.LENGTH_SHORT).show();
