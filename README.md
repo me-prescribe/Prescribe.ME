@@ -98,7 +98,7 @@ After this, is the Signature & Name of the Doctor.
 
 #### **PDF**
 
-The above generated HTML Prescription is converted to a PDF. Using [PSPDFKit](https://pspdfkit.com/), the PDF is displayed in the app. The PDF is opened in print viewed, which the user can then save on his phone or print using the print button.
+The above generated HTML Prescription is converted to a PDF. Using [HTMLtoPPDFConvertor](https://github.com/mddanishansari/html-to-pdf-convertor), the PDF is displayed in the app. The PDF is opened in print viewed, which the user can then save on his phone or print using the print button.
 
 ### Dark Mode
 
@@ -117,7 +117,7 @@ We are proud to present the app in Dark Mode. Instead of having forced dark mode
 * Google Analytics for tracking usage
 * Google Speech to Text for converting speech to text
 
-## Privacy Policy
+## [Privacy Policy](https://github.com/me-prescribe/Prescribe.ME/PRIVACY.MD)
 
 Privacy Policy has been published separately. Encompassing the Privacy Policy and Terms of Service related to User Profile, Prescription, and Signature storage & display.
 
