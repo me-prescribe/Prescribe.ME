@@ -98,7 +98,7 @@ After this, is the Signature & Name of the Doctor.
 
 #### **PDF**
 
-The above generated HTML Prescription is converted to a PDF. Using [HTMLtoPPDFConvertor](https://github.com/mddanishansari/html-to-pdf-convertor), the PDF is displayed in the app. The PDF is opened in print viewed, which the user can then save on his phone or print using the print button.
+The above generated HTML Prescription is converted to a PDF. Using [HTMLtoPDFConvertor](https://github.com/mddanishansari/html-to-pdf-convertor), the PDF is displayed in the app. The PDF is opened in print viewed, which the user can then save on his phone or print using the print button.
 
 ### Dark Mode
 
