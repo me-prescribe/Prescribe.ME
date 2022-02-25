@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30sp"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Prescription #"
+                android:layout_gravity="center_horizontal"
                 android:textColor="@color/foreground"
                 android:textStyle="bold"/>
         </LinearLayout>
@@ -365,21 +367,39 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnConfirm"
+            android:id="@+id/btnHTML"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_button"
-            android:gravity="center|center_horizontal|center_vertical"
-            android:text="Confirm Profile Information"
-            app:backgroundTint="@color/foreground"
-            android:layout_marginStart="32sp"
-            android:layout_marginLeft="32sp"
-            android:layout_marginEnd="32sp"
-            android:layout_marginRight="32sp"
             android:layout_marginTop="20sp"
+            android:layout_marginEnd="8sp"
+            android:background="@drawable/round_button"
+            android:text="View HTML"
+            android:drawableLeft="@drawable/ic_code"
+            app:backgroundTint="@color/foreground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/btnPDF"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/PatGenderLL"
+            app:layout_constraintTop_toBottomOf="@+id/PatGenderLL" />
+
+        <Button
+            android:id="@+id/btnPDF"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="32sp"
+            android:background="@drawable/round_button"
+            android:text="View PDF"
+            android:drawableLeft="@drawable/ic_pdf"
+            app:backgroundTint="@color/foreground"
+            app:layout_constraintBottom_toBottomOf="@+id/btnHTML"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/PatGenderLL"/>
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnHTML"
+            app:layout_constraintTop_toTopOf="@+id/btnHTML"
+            app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/btnBack"
@@ -396,7 +416,7 @@
             android:layout_marginTop="10sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnConfirm"/>
+            app:layout_constraintTop_toBottomOf="@+id/btnHTML"/>
 
         <TextView
             android:id="@+id/txtBackWarning"

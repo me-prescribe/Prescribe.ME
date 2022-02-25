@@ -38,7 +38,7 @@ public class ViewProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
         warn=ContextCompat.getColor(ViewProfile.this, R.color.red); //Saving RGB value of red color as int
-        success= ContextCompat.getColor(ViewProfile.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
+        success= ContextCompat.getColor(ViewProfile.this, R.color.success); //Saving RGB value of success [shade of green] as int
 
         mAuth= FirebaseAuth.getInstance();
         user=mAuth.getCurrentUser();

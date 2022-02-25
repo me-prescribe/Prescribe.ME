@@ -13,6 +13,8 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/app_logo_trans.xml" value="0.2555" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_back_menu.xml" value="0.2555" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_building.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_code.xml" value="0.2555" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_complete.xml" value="0.2555" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_contact.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_day.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_describe.xml" value="0.26614583333333336" />
@@ -28,6 +30,7 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_night.xml" value="0.14322916666666666" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_numbers.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_pdf.xml" value="0.2555" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_pending.xml" value="0.2555" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_person.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_person_filled.xml" value="0.2555" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/drawable/ic_privacy.xml" value="0.2555" />
@@ -44,7 +47,7 @@
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_in_app_browser.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_loading_screen.xml" value="0.25" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_login.xml" value="0.1" />
-        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_patient_info.xml" value="0.2" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_prescribe.xml" value="0.2" />
         <entry key="..\:/Users/Dell/AndroidStudioProjects/PrescribeME/app/src/main/res/layout/activity_register.xml" value="0.264" />

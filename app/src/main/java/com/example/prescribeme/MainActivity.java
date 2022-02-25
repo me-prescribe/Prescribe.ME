@@ -1,30 +1,44 @@
 package com.example.prescribeme;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView txtDrName;
     Button btnPrescribe, btnSignOut, btnView, btnSign;
+    ImageView ProfComplete, SignComplete;
     CardView mainMenuCV;
     LinearLayout BackLL, AboutLL, DarkLL, LightLL, MenuLL, PrivacyLL, Paper2021LL, Paper2022LL, FeedbackLL, WebsiteLL, SignOutLL;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
+    FirebaseDatabase realDB;
+    DatabaseReference realRef;
+
+    private String UserID;
+    Drawable Complete, Pending;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth= FirebaseAuth.getInstance(); //Firebase Instance
         user=mAuth.getCurrentUser(); //Getting Currently Signed In User
+        UserID= user != null ? user.getUid() : null; //Retrieves unique User ID
+        realDB=FirebaseDatabase.getInstance(); //Instance of Realtime Database
+        realRef=realDB.getReference().child(UserID); //Reference of the Database & Child branch with name as UserID of user
+
+        ProfComplete=(ImageView) findViewById(R.id.ProfComplete);
+        SignComplete=(ImageView) findViewById(R.id.SignComplete);
+        Complete=getDrawable(R.drawable.ic_complete);
+        Pending=getDrawable(R.drawable.ic_pending);
+        checkComplete();
 
         txtDrName=(TextView)findViewById(R.id.txtDrName);
         txtDrName.setText("Dr. " + user.getDisplayName()); //Displaying Name of Doctor(User)
@@ -135,5 +158,53 @@ public class MainActivity extends AppCompatActivity {
         Intent browseInt = new Intent(MainActivity.this, InAppBrowser.class);
         browseInt.putExtra("URL", URL);
         startActivity(browseInt);
+    }
+
+    //Function to check if Profile is Complete & Signature is Uploaded
+    private void checkComplete() {
+        realRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int j=1;
+                for (DataSnapshot snapshot1 : snapshot.getChildren()){
+                    String snap_value=snapshot1.getValue().toString();
+                    String snap_name= snapshot1.getKey();
+                    switch (snap_name)
+                    {
+                        case "Completed":
+                            if (snap_value.equals("false")){
+                                ProfComplete.setImageDrawable(Pending); //Changes to Cross Icon
+                                Toast.makeText(MainActivity.this, "Please Update Profile Info Before Continuing", Toast.LENGTH_LONG).show();
+                                Intent updInt = new Intent(MainActivity.this, UpdateProfile.class); //Leads User to Update Profile Activity
+                                updInt.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(updInt);
+                            }
+                            else
+                                ProfComplete.setImageDrawable(Complete); //Changes to Tick/Check Icon
+                            break;
+                        case "Profile Info":
+                        case "Sign Extension":
+                            break;
+                        case "Sign Uploaded":
+                            if (snap_value.equals("false")){
+                                SignComplete.setImageDrawable(Pending); //Changes to Cross Icon
+                                Toast.makeText(MainActivity.this, "Please Upload Signature Before Continuing", Toast.LENGTH_LONG).show();
+                                Intent signInt = new Intent(MainActivity.this, UpdateSignature.class); //Leads User to Update Signature Activity
+                                signInt.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(signInt);
+                            }
+                            else
+                                SignComplete.setImageDrawable(Complete);
+                            break;
+                        default:
+                            Toast.makeText(MainActivity.this, (j++)+": "+snap_value,Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

@@ -4,8 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintManager;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +25,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import org.nvest.html_to_pdf.HtmlToPdfConvertor;
+
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -28,11 +36,11 @@ import java.util.Locale;
 public class ConfirmProfile extends AppCompatActivity {
     
     TextView drName, drQualifications, drContact, drClinic, patName, patAge, patGender, messageBox, txtPrescriptionNo, txtSignURL;
-    Button btnHTML, btnReset;
+    Button btnHTML, btnPDF, btnReset;
 
     String DrName, DrQualifications, DrContact, DrClinic, PatName, PatAge, PatGender;
     String Diagnosis, PresHTML, Information, UserID, signURL;
-    String todayDate, PrescriptionNo, Head, DocHTML, PatHTML, DiagnosisHTML="", InfoHTML="", Footer, HTML;
+    String todayDate, PrescriptionNo, Head, DocHTML, PatHTML, DiagnosisHTML="", InfoHTML="", Footer, HTML="";
     String[] doc_info, pat_info;
     int warn, success;
 
@@ -48,7 +56,7 @@ public class ConfirmProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_profile);
         warn= ContextCompat.getColor(ConfirmProfile.this, R.color.red); //Saving RGB value of red color as int
-        success= ContextCompat.getColor(ConfirmProfile.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
+        success= ContextCompat.getColor(ConfirmProfile.this, R.color.success); //Saving RGB value of success [shade of green] as int
 
         //Receiving Intent from Prescribe Activity
         Intent confInt=getIntent();
@@ -106,25 +114,25 @@ public class ConfirmProfile extends AppCompatActivity {
         if(!Information.trim().isEmpty())
             InfoHTML=PrescriptionHTML.getDiagnosisInfo("Additional Information", Information);
 
-        btnHTML=(Button) findViewById(R.id.btnConfirm);
+        btnHTML=(Button) findViewById(R.id.btnHTML);
         btnHTML.setOnClickListener(v -> {
-            DrName=drName.getText().toString();
-            DrQualifications=drQualifications.getText().toString();
-            DrContact=drContact.getText().toString();
-            DrClinic=drClinic.getText().toString();
-            doc_info= new String[]{DrName, DrQualifications, DrContact, DrClinic};
-            pat_info= new String[]{PatName, PatAge, PatGender};
-            signURL=txtSignURL.getText().toString();
-            PatHTML=PrescriptionHTML.getPatInfo(pat_info, todayDate, PrescriptionNo);
-            DocHTML=PrescriptionHTML.getDocInfo(doc_info);
-            Head=PrescriptionHTML.getHeadHTML();
-            Footer=PrescriptionHTML.getFooterHTML(DrName, signURL);
-            HTML=Head+DocHTML+PatHTML+DiagnosisHTML+PresHTML+InfoHTML+Footer;
+            if (HTML.equals(""))
+                getHTML();
             Intent HTMLInt=new Intent(ConfirmProfile.this, ViewHTML.class);
             HTMLInt.putExtra("HTML", HTML);
             HTMLInt.putExtra("Prescription No", PrescriptionNo);
             HTMLInt.putExtra("Date", todayDate);
             startActivity(HTMLInt);
+        });
+
+        btnPDF=(Button) findViewById(R.id.btnPDF);
+        btnPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (HTML.equals(""))
+                    getHTML();
+                createPDF();
+            }
         });
 
         btnReset=(Button) findViewById(R.id.btnBack);
@@ -133,6 +141,53 @@ public class ConfirmProfile extends AppCompatActivity {
             mainInt.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(mainInt);
         });
+    }
+
+    //Function that gathers information to create HTML
+    private void getHTML() {
+        DrName=drName.getText().toString();
+        DrQualifications=drQualifications.getText().toString();
+        DrContact=drContact.getText().toString();
+        DrClinic=drClinic.getText().toString();
+        doc_info= new String[]{DrName, DrQualifications, DrContact, DrClinic};
+        pat_info= new String[]{PatName, PatAge, PatGender};
+        signURL=txtSignURL.getText().toString();
+        PatHTML=PrescriptionHTML.getPatInfo(pat_info, todayDate, PrescriptionNo);
+        DocHTML=PrescriptionHTML.getDocInfo(doc_info);
+        Head=PrescriptionHTML.getHeadHTML();
+        Footer=PrescriptionHTML.getFooterHTML(DrName, signURL);
+        HTML=Head+DocHTML+PatHTML+DiagnosisHTML+PresHTML+InfoHTML+Footer;
+    }
+
+    //Function that creates PDF from HTML String
+    private void createPDF(){
+        String fileName = "Prescription #" + PrescriptionNo; //Creating File Name
+        File PDF = new File(ConfirmProfile.this.getFilesDir(), PrescriptionNo + ".pdf"); //Creating PDF File References
+        HtmlToPdfConvertor htmlToPdfConvertor = new HtmlToPdfConvertor(ConfirmProfile.this); //Creating Object of HTMLtoPDFConvertor
+        htmlToPdfConvertor.convert(PDF, HTML, e -> { //Exception if occurred
+            messageBox.setText("PDF Creation Error: " + e);
+            messageBox.setTextColor(warn);
+            return null;
+        }, file -> { //PDF File is Generated
+            printPDF(file, fileName); //Calling Function to Print PDF File
+            return null;
+        });
+    }
+
+    //Function that opens Print Manager to print given PDF
+    private void printPDF(File file, String name) {
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE); //Object of Print Manager
+        try {
+            PrintDocumentAdapter printDocumentAdapter = new PdfDocumentAdapter(ConfirmProfile.this, file.getPath(), name);
+            printManager.print(name, printDocumentAdapter, new PrintAttributes.Builder().build());
+            messageBox.setText("PDF Created Successfully!");
+            messageBox.setTextColor(success);
+        }
+        catch (Exception e)
+        {
+            messageBox.setText("PDF Printing Error: "+e);
+            messageBox.setTextColor(warn);
+        }
     }
 
     //Function to display Doctor Profile in their respective TextView

@@ -52,7 +52,7 @@ public class UpdateSignature extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_signature);
         warn= ContextCompat.getColor(UpdateSignature.this, R.color.red); //Saving RGB value of red color as int
-        success= ContextCompat.getColor(UpdateSignature.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
+        success= ContextCompat.getColor(UpdateSignature.this, R.color.success); //Saving RGB value of success [shade of green] as int
 
         Intent signInt=getIntent();
 
