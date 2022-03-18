@@ -93,8 +93,7 @@ This is then followed by the Prescription itself, which is the above table rotat
 
 After this, is the Signature & Name of the Doctor.
 
-![image](https://user-images.githubusercontent.com/96186273/151956042-bb13f903-c3fb-4b66-96de-7de5c5fd783c.png)
-
+![Prescription HTML](https://user-images.githubusercontent.com/96186273/159000823-9f27be5d-9305-482b-9eea-ab3bce6e7b20.png)
 
 #### **PDF**
 
