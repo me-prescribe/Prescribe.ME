@@ -7,9 +7,9 @@
     tools:context=".InAppBrowser">
 
     <ImageView
-        android:layout_width="200sp"
-        android:layout_height="200sp"
-        android:src="@drawable/app_logo_trans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/header"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

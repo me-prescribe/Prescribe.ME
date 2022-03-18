@@ -81,7 +81,7 @@ public class PrescriptionHTML {
                 "<td class=\"infodr\">" + doc_info[1] + "</td>" +
                 "</tr>" +
                 "<tr>" +
-                "<td class=\"infodr\">Registration No: " + doc_info[2] + "</td>" +
+                "<td class=\"infodr\">Contact: " + doc_info[2] + "</td>" +
                 "</tr>" +
                 "<tr>" +
                 "<td class=\"infodr\">" + doc_info[3] + "</td>" +
