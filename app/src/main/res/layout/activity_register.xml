@@ -44,11 +44,11 @@
             <EditText
                 android:id="@+id/EmailIDRegister"
                 android:layout_height="wrap_content"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Email-ID"
                 android:inputType="textEmailAddress"
                 android:paddingStart="20sp"
@@ -60,8 +60,8 @@
 
             <ImageButton
                 android:id="@+id/mic_email"
-                android:layout_width="40dp"
-                android:layout_height="40sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />

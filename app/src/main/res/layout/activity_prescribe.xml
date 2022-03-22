@@ -60,12 +60,12 @@
 
             <EditText
                 android:id="@+id/Diagnosis"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_describe"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Diagnosis"
                 android:inputType="textMultiLine"
                 android:paddingStart="20sp"
@@ -78,7 +78,7 @@
             <ImageButton
                 android:id="@+id/micDiagnosis"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
@@ -100,12 +100,12 @@
 
             <EditText
                 android:id="@+id/Medicine"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableLeft="@drawable/ic_medicine"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Prescription"
                 android:inputType="textPersonName"
                 android:paddingLeft="20sp"
@@ -117,8 +117,8 @@
 
             <ImageButton
                 android:id="@+id/micMedicine"
-                android:layout_width="30sp"
-                android:layout_height="40sp"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
@@ -153,12 +153,12 @@
 
             <EditText
                 android:id="@+id/Information"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_describe"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Additional Information"
                 android:inputType="textMultiLine"
                 android:paddingStart="20sp"
@@ -171,7 +171,7 @@
             <ImageButton
                 android:id="@+id/micInformation"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />

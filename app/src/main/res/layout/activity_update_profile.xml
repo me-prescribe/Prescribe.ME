@@ -43,12 +43,12 @@
     
             <EditText
                 android:id="@+id/usrFirstName"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Enter Your First Name"
                 android:inputType="textPersonName"
                 android:paddingStart="20sp"
@@ -61,7 +61,7 @@
             <ImageButton
                 android:id="@+id/mic_FName"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
@@ -82,12 +82,12 @@
     
             <EditText
                 android:id="@+id/usrLastName"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Enter Your Last Name"
                 android:inputType="textPersonName"
                 android:paddingStart="20sp"
@@ -100,7 +100,7 @@
             <ImageButton
                 android:id="@+id/mic_LName"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
@@ -121,12 +121,12 @@
     
             <EditText
                 android:id="@+id/usrAadharNo"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableLeft="@drawable/ic_numbers"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Enter Your Aadhar No"
                 android:inputType="number"
                 android:paddingLeft="20sp"
@@ -139,7 +139,7 @@
             <ImageButton
                 android:id="@+id/mic_AadharNo"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
@@ -161,12 +161,12 @@
     
             <EditText
                 android:id="@+id/usrQualifications"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_qualif"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Enter Your Qualification"
                 android:inputType="text"
                 android:paddingStart="20sp"
@@ -179,7 +179,7 @@
             <ImageButton
                 android:id="@+id/mic_Qualif"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic"/>
@@ -200,12 +200,12 @@
     
             <EditText
                 android:id="@+id/usrRegistrationNo"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_numbers"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Enter Your Registration No"
                 android:inputType="text"
                 android:paddingStart="20sp"
@@ -218,7 +218,7 @@
             <ImageButton
                 android:id="@+id/mic_RegNo"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
@@ -239,12 +239,12 @@
     
             <EditText
                 android:id="@+id/usrClinic"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_building"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Enter Clinic, Hospital Visits"
                 android:inputType="textPersonName"
                 android:paddingStart="20sp"
@@ -257,7 +257,7 @@
             <ImageButton
                 android:id="@+id/mic_Clinic"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
@@ -278,12 +278,12 @@
     
             <EditText
                 android:id="@+id/usrContact"
-                android:layout_width="310dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/input_outline"
                 android:drawableStart="@drawable/ic_contact"
                 android:drawablePadding="10sp"
-                android:ems="10"
+                android:layout_weight="6"
                 android:hint="Enter Contact Information"
                 android:inputType="number"
                 android:paddingStart="20sp"
@@ -296,7 +296,7 @@
             <ImageButton
                 android:id="@+id/mic_Contact"
                 android:layout_width="0dp"
-                android:layout_height="40sp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/round_button"
                 app:srcCompat="@drawable/ic_mic" />
