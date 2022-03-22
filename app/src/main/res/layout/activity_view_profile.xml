@@ -43,10 +43,9 @@
 
             <TextView
                 android:id="@+id/txtFName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:fontFamily="@font/baumans"
                 android:paddingTop="8sp"
                 android:paddingBottom="8sp"
@@ -57,10 +56,9 @@
 
             <TextView
                 android:id="@+id/viewFName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:fontFamily="@font/berkshire_swash"
                 android:paddingStart="20sp"
                 android:paddingTop="8sp"
@@ -86,10 +84,9 @@
 
             <TextView
                 android:id="@+id/txtLName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="8sp"
                 android:paddingBottom="8sp"
                 android:textColor="@color/foreground"
@@ -100,10 +97,9 @@
 
             <TextView
                 android:id="@+id/viewLName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="8sp"
                 android:paddingEnd="10sp"
@@ -129,10 +125,9 @@
 
             <TextView
                 android:id="@+id/txtAadharNo"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="8sp"
                 android:paddingBottom="8sp"
                 android:textColor="@color/foreground"
@@ -143,10 +138,9 @@
 
             <TextView
                 android:id="@+id/viewAadharNo"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="8sp"
                 android:paddingEnd="10sp"
@@ -172,10 +166,9 @@
 
             <TextView
                 android:id="@+id/txtQualifications"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="8sp"
                 android:paddingBottom="8sp"
                 android:textColor="@color/foreground"
@@ -186,10 +179,9 @@
 
             <TextView
                 android:id="@+id/viewQualifications"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="8sp"
                 android:paddingEnd="10sp"
@@ -215,24 +207,22 @@
 
             <TextView
                 android:id="@+id/txtRegistrationNo"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="8sp"
                 android:paddingBottom="8sp"
                 android:textColor="@color/foreground"
                 android:text="Registration No: "
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:fontFamily="@font/baumans"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/viewRegistrationNo"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="8sp"
                 android:paddingEnd="10sp"
@@ -258,10 +248,9 @@
 
             <TextView
                 android:id="@+id/txtClinic"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="8sp"
                 android:paddingBottom="8sp"
                 android:textColor="@color/foreground"
@@ -272,10 +261,9 @@
 
             <TextView
                 android:id="@+id/viewClinic"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="8sp"
                 android:paddingEnd="10sp"
@@ -301,10 +289,9 @@
 
             <TextView
                 android:id="@+id/txtContact"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="8sp"
                 android:paddingBottom="8sp"
                 android:textColor="@color/foreground"
@@ -315,10 +302,9 @@
 
             <TextView
                 android:id="@+id/viewContact"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="8sp"
                 android:paddingEnd="10sp"

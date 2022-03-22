@@ -70,10 +70,10 @@
 
             <TextView
                 android:id="@+id/txtDrName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="10sp"
                 android:paddingBottom="10sp"
                 android:textColor="@color/foreground"
@@ -84,10 +84,10 @@
 
             <TextView
                 android:id="@+id/viewDrName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="10sp"
                 android:paddingEnd="10sp"
@@ -112,10 +112,10 @@
 
             <TextView
                 android:id="@+id/txtDrQualifications"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="10sp"
                 android:paddingBottom="10sp"
                 android:textColor="@color/foreground"
@@ -126,10 +126,10 @@
 
             <TextView
                 android:id="@+id/viewDrQualifications"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="10sp"
                 android:paddingEnd="10sp"
@@ -154,10 +154,10 @@
 
             <TextView
                 android:id="@+id/txtDrContact"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="10sp"
                 android:paddingBottom="10sp"
                 android:textColor="@color/foreground"
@@ -168,10 +168,10 @@
 
             <TextView
                 android:id="@+id/viewDrContact"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="10sp"
                 android:paddingEnd="10sp"
@@ -196,24 +196,23 @@
 
             <TextView
                 android:id="@+id/txtDrClinic"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:drawablePadding="10sp"
-                android:ems="6"
-                android:paddingTop="10sp"
-                android:paddingBottom="10sp"
+                android:layout_weight="2"
+                android:paddingTop="8sp"
+                android:paddingBottom="8sp"
                 android:textColor="@color/foreground"
-                android:text="Clinic/Hospitals: "
+                android:text="Clinic/Hospital: "
                 android:textSize="20sp"
                 android:fontFamily="@font/baumans"
                 android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/viewDrClinic"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="10sp"
                 android:paddingEnd="10sp"
@@ -254,10 +253,10 @@
 
             <TextView
                 android:id="@+id/txtPatName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="10sp"
                 android:paddingBottom="10sp"
                 android:textColor="@color/foreground"
@@ -268,10 +267,10 @@
 
             <TextView
                 android:id="@+id/viewPatName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="10sp"
                 android:paddingEnd="10sp"
@@ -296,10 +295,10 @@
 
             <TextView
                 android:id="@+id/txtPatAge"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="10sp"
                 android:paddingBottom="10sp"
                 android:textColor="@color/foreground"
@@ -310,10 +309,10 @@
 
             <TextView
                 android:id="@+id/viewPatAge"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="10sp"
                 android:paddingEnd="10sp"
@@ -338,10 +337,10 @@
 
             <TextView
                 android:id="@+id/txtPatGender"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="2"
                 android:paddingTop="10sp"
                 android:paddingBottom="10sp"
                 android:textColor="@color/foreground"
@@ -352,10 +351,10 @@
 
             <TextView
                 android:id="@+id/viewPatGender"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:drawablePadding="10sp"
-                android:ems="6"
+                android:layout_weight="3"
                 android:paddingStart="20sp"
                 android:paddingTop="10sp"
                 android:paddingEnd="10sp"
