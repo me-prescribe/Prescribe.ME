@@ -52,7 +52,7 @@ public class Prescribe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prescribe);
         warn= ContextCompat.getColor(Prescribe.this, R.color.red); //Saving RGB value of red color as int
-        success= ContextCompat.getColor(Prescribe.this, R.color.foreground); //Saving RGB value of foreground(gold/navy-blue) as int
+        success= ContextCompat.getColor(Prescribe.this, R.color.success); //Saving RGB value of foreground(gold/navy-blue) as int
 
         //Receiving Intent from PatientInfo Activity
         Intent presInt=getIntent();

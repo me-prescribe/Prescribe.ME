@@ -50,11 +50,11 @@
 
             <ImageView
                 android:id="@+id/imgDoctor"
-                android:layout_width="250sp"
+                android:layout_width="match_parent"
                 android:layout_height="150sp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20sp"
-                app:srcCompat="@mipmap/ic_doctor_foreground" />
+                app:srcCompat="@drawable/doctor" />
         </LinearLayout>
 
         <Button

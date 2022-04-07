@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private String UserID;
     Drawable Complete, Pending;
 
+    private int CHECK = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +76,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
         btnPrescribe=(Button)findViewById(R.id.btnPrescribe);
-        btnPrescribe.setOnClickListener(view -> startActivity(new Intent(MainActivity.this, PatientInfo.class))); //Directs User to PatientInfo Activity
+        btnPrescribe.setOnClickListener(v ->{
+            if (CHECK != 0)
+                startActivity(new Intent(MainActivity.this, PatientInfo.class)); //Directs User to PatientInfo Activity
+            else
+                Toast.makeText(MainActivity.this,"Please Wait While Profile Details are fetched!", Toast.LENGTH_SHORT).show();
+        });
 
         btnSignOut=(Button)findViewById(R.id.btnSignOut);
         btnSignOut.setOnClickListener(v -> {
@@ -179,8 +185,10 @@ public class MainActivity extends AppCompatActivity {
                                 updInt.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(updInt);
                             }
-                            else
+                            else {
                                 ProfComplete.setImageDrawable(Complete); //Changes to Tick/Check Icon
+                                CHECK = (CHECK + 1) % 3;
+                            }
                             break;
                         case "Profile Info":
                         case "Sign Extension":
@@ -194,7 +202,10 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(signInt);
                             }
                             else
-                                SignComplete.setImageDrawable(Complete);
+                            {
+                                SignComplete.setImageDrawable(Complete); //Changes to Tick/Check Icon
+                                CHECK = (CHECK + 1) % 3;
+                            }
                             break;
                         default:
                             Toast.makeText(MainActivity.this, (j++)+": "+snap_value,Toast.LENGTH_SHORT).show();
