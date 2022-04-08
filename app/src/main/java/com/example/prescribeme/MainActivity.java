@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         AboutLL=(LinearLayout) findViewById(R.id.AboutLL); //LinearLayout of About Us Option
         PrivacyLL=(LinearLayout) findViewById(R.id.PrivacyLL); //LinearLayout of Privacy Policy Option
         WebsiteLL=(LinearLayout) findViewById(R.id.WebsiteLL); //LinearLayout of Website Option
-        YouTubeLL=(LinearLayout) findViewById(R.id.YouTubeLL); //LinearLayout of Website Option
+        YouTubeLL=(LinearLayout) findViewById(R.id.YouTubeLL); //LinearLayout of YouTube Option
         BackLL=(LinearLayout) findViewById(R.id.BackMenuLL); //LinearLayout of Back Option
         FeedbackLL=(LinearLayout) findViewById(R.id.FeedBackLL); //LinearLayout of Feedback Option
         Paper2021LL=(LinearLayout) findViewById(R.id.Paper2021LL); //LinearLayout of Paper 2021 Option
@@ -152,7 +153,8 @@ public class MainActivity extends AppCompatActivity {
         });
         AboutLL.setOnClickListener(v -> openBrowser(getString(R.string.ABOUT)));
         PrivacyLL.setOnClickListener(v -> openBrowser(getString(R.string.PRIVACY)));
-        WebsiteLL.setOnClickListener(v -> openBrowser(getString(R.string.YOUTUBE)));
+        WebsiteLL.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show());
+        YouTubeLL.setOnClickListener(v -> startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.YOUTUBE)))));
         Paper2021LL.setOnClickListener(v -> openBrowser(getString(R.string.PAPER2021)));
         Paper2022LL.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show());
         FeedbackLL.setOnClickListener(v -> openBrowser(getString(R.string.FEEDBACK)));
