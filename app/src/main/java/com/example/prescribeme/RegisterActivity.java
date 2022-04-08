@@ -2,9 +2,14 @@ package com.example.prescribeme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.speech.RecognizerIntent;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,6 +51,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         //Receiving Intent from Login Activity
         Intent newACint=getIntent();
+
+        checkInternet();
 
         //Initialising both EditTexts (input box)
         ipEmailId=(EditText)findViewById(R.id.EmailIDRegister);
@@ -144,7 +151,42 @@ public class RegisterActivity extends AppCompatActivity {
                     startActivity(new Intent(RegisterActivity.this, RegisterActivity.class)); //Reloading Register Activity due to unsuccessful Registration
                 }
             });
-
         }
+    }
+
+    //Function to check if Internet if is working or not
+    private void checkInternet() {
+        if (!haveNetworkConnection()) //If Internet is Not Connected
+        {
+            AlertDialog.Builder noInternetBuilder = new AlertDialog.Builder(RegisterActivity.this); //Create Alert Dialog Box
+            noInternetBuilder.setTitle("No Internet Detected!") //Title of Alert Dialog Box
+                    .setMessage("Please Turn On Internet to use this App") //Message which will be displayed in the Alert Dialog Box
+                    .setCancelable(false) //Cannot Cancel By Clicking Outside of the Box
+                    .setIcon(R.drawable.no_internet) //Setting an Icon for the Alert Dialog Box
+                    .setPositiveButton("WiFi Settings", (dialog, id) -> startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS))) //Opens WiFi Settings when clicked
+                    .setNegativeButton("Mobile Data Settings", (dialog, which) -> startActivity(new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS))) //Open Mobile Data Settings when clicked
+                    .setNeutralButton("Exit App", (dialog, id) -> RegisterActivity.this.finish()); //Closes App when Clicked
+            AlertDialog noInternet = noInternetBuilder.create(); //Alert Dialog Box is finally created
+            noInternet.show(); //Displaying the Alert Dialog Box
+        }
+        else
+            Toast.makeText(RegisterActivity.this, "Connected to Internet", Toast.LENGTH_SHORT).show();
+    }
+
+    //Function to check Connection Connection Status
+    private boolean haveNetworkConnection() {
+        boolean haveConnectedWifi = false, haveConnectedMobile = false; //Boolean to check N/W Connection
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE); //Getting Connection Status
+        NetworkInfo[] netInfo = connectivityManager.getAllNetworkInfo(); //Getting Network Information
+        for (NetworkInfo networkInfo : netInfo) {
+            if (networkInfo.getTypeName().equalsIgnoreCase("WiFi")) //Getting WiFi Status
+                if (networkInfo.isConnected()) //If Connected Using WiFi
+                    haveConnectedWifi = true;
+            if (networkInfo.getTypeName().equalsIgnoreCase("Mobile")) //Getting Mobile Data Status
+                if (networkInfo.isConnected()) //If Connected using Mobile Data
+                    haveConnectedMobile = true;
+        }
+        return haveConnectedWifi || haveConnectedMobile;
     }
 }

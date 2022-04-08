@@ -5,10 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnPrescribe, btnSignOut, btnView, btnSign;
     ImageView ProfComplete, SignComplete;
     CardView mainMenuCV;
-    LinearLayout BackLL, AboutLL, DarkLL, LightLL, MenuLL, PrivacyLL, Paper2021LL, Paper2022LL, FeedbackLL, WebsiteLL, SignOutLL;
+    LinearLayout BackLL, AboutLL, DarkLL, LightLL, MenuLL, PrivacyLL, Paper2021LL, Paper2022LL, FeedbackLL, WebsiteLL, YouTubeLL, SignOutLL;
 
     FirebaseAuth mAuth;
     FirebaseUser user;
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Receiving Intent from Login or Register Activity
         Intent mainInt=getIntent();
+        checkInternet();
 
         mAuth= FirebaseAuth.getInstance(); //Firebase Instance
         user=mAuth.getCurrentUser(); //Getting Currently Signed In User
@@ -62,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
         ProfComplete=(ImageView) findViewById(R.id.ProfComplete);
         SignComplete=(ImageView) findViewById(R.id.SignComplete);
-        Complete=getDrawable(R.drawable.ic_complete);
-        Pending=getDrawable(R.drawable.ic_pending);
+        Complete=getDrawable(R.drawable.ic_complete); //References the Check Mark Drawable Icon
+        Pending=getDrawable(R.drawable.ic_pending); //References the Cross Mark Drawable Icon
         checkComplete();
 
         txtDrName=(TextView)findViewById(R.id.txtDrName);
@@ -116,6 +122,7 @@ public class MainActivity extends AppCompatActivity {
         AboutLL=(LinearLayout) findViewById(R.id.AboutLL); //LinearLayout of About Us Option
         PrivacyLL=(LinearLayout) findViewById(R.id.PrivacyLL); //LinearLayout of Privacy Policy Option
         WebsiteLL=(LinearLayout) findViewById(R.id.WebsiteLL); //LinearLayout of Website Option
+        YouTubeLL=(LinearLayout) findViewById(R.id.YouTubeLL); //LinearLayout of Website Option
         BackLL=(LinearLayout) findViewById(R.id.BackMenuLL); //LinearLayout of Back Option
         FeedbackLL=(LinearLayout) findViewById(R.id.FeedBackLL); //LinearLayout of Feedback Option
         Paper2021LL=(LinearLayout) findViewById(R.id.Paper2021LL); //LinearLayout of Paper 2021 Option
@@ -145,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
         });
         AboutLL.setOnClickListener(v -> openBrowser(getString(R.string.ABOUT)));
         PrivacyLL.setOnClickListener(v -> openBrowser(getString(R.string.PRIVACY)));
-        WebsiteLL.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show());
+        WebsiteLL.setOnClickListener(v -> openBrowser(getString(R.string.YOUTUBE)));
         Paper2021LL.setOnClickListener(v -> openBrowser(getString(R.string.PAPER2021)));
         Paper2022LL.setOnClickListener(v -> Toast.makeText(MainActivity.this, "Coming Soon", Toast.LENGTH_SHORT).show());
         FeedbackLL.setOnClickListener(v -> openBrowser(getString(R.string.FEEDBACK)));
@@ -217,5 +224,41 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Error: "+error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    //Function to check if Internet if is working or not
+    private void checkInternet() {
+        if (!haveNetworkConnection()) //If Internet is Not Connected
+        {
+            AlertDialog.Builder noInternetBuilder = new AlertDialog.Builder(MainActivity.this); //Create Alert Dialog Box
+            noInternetBuilder.setTitle("No Internet Detected!") //Title of Alert Dialog Box
+                    .setMessage("Please Turn On Internet to use this App") //Message which will be displayed in the Alert Dialog Box
+                    .setCancelable(false) //Cannot Cancel By Clicking Outside of the Box
+                    .setIcon(R.drawable.no_internet) //Setting an Icon for the Alert Dialog Box
+                    .setPositiveButton("WiFi Settings", (dialog, id) -> startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS))) //Opens WiFi Settings when clicked
+                    .setNegativeButton("Mobile Data Settings", (dialog, which) -> startActivity(new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS))) //Open Mobile Data Settings when clicked
+                    .setNeutralButton("Exit App", (dialog, id) -> MainActivity.this.finish()); //Closes App when Clicked
+            AlertDialog noInternet = noInternetBuilder.create(); //Alert Dialog Box is finally created
+            noInternet.show(); //Displaying the Alert Dialog Box
+        }
+        else
+            Toast.makeText(MainActivity.this, "Connected to Internet", Toast.LENGTH_SHORT).show();
+    }
+
+    //Function to check Connection Connection Status
+    private boolean haveNetworkConnection() {
+        boolean haveConnectedWifi = false, haveConnectedMobile = false; //Boolean to check N/W Connection
+
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE); //Getting Connection Status
+        NetworkInfo[] netInfo = connectivityManager.getAllNetworkInfo(); //Getting Network Information
+        for (NetworkInfo networkInfo : netInfo) {
+            if (networkInfo.getTypeName().equalsIgnoreCase("WiFi")) //Getting WiFi Status
+                if (networkInfo.isConnected()) //If Connected Using WiFi
+                    haveConnectedWifi = true;
+            if (networkInfo.getTypeName().equalsIgnoreCase("Mobile")) //Getting Mobile Data Status
+                if (networkInfo.isConnected()) //If Connected using Mobile Data
+                    haveConnectedMobile = true;
+        }
+        return haveConnectedWifi || haveConnectedMobile;
     }
 }
