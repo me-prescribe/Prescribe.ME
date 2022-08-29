@@ -4,9 +4,9 @@
 
 An Android Application for doctors to **verbally** prescribe Medicines
 
-Using this application, doctors can utter Prescriptions in **English** sentences, which will then by converted to a tabular prescription
+Using this application, doctors can dictate Prescriptions in **English** sentences, which will then by converted to a tabular prescription
 
-Each & Every Field mentioned or not mentioned below excluding password can be entered orally by the user with the help of [Google Speech to Text](https://cloud.google.com/speech-to-text).
+Each & Every Field mentioned or not mentioned below excluding password can be entered verbally by the user with the help of [Google Speech to Text](https://cloud.google.com/speech-to-text).
 
 ## Features
 
@@ -48,7 +48,7 @@ Here, the user is prompted for 3 fields:
 
 #### **Prescribing Medicines**
 
-The user can utter (by voice) or type in the prescription (1 sentence per drug) in simple **English** sentences. Then, they can click on the _Prescribe Above Sentence_ button once sentence is finalised. Now, this sentence is sent through API to our ML Model hosted on [Heroku App](https://devcenter.heroku.com/). The Model then predicts intent & slots. These slots are then returned to the app where they are displayed in tabular format.
+The user can dictate (by voice) or type in the prescription (1 sentence per drug) in simple **English** sentences. Then, they can click on the _Prescribe Above Sentence_ button once sentence is finalised. Now, this sentence is sent through API to our ML Model hosted on [Heroku App](https://devcenter.heroku.com/). The Model then predicts intent & slots. These slots are then returned to the app where they are displayed in tabular format.
 
 Example:
 
